@@ -104,6 +104,11 @@ public class BasicZomz : MonoBehaviour
 			color = Color.black;
 			break;
 		}
+
+		print (color);
+
+		mat = GetComponent<Material>();
+
 		mat.color = color;
 		mat.SetColor("_EmmisionColor", color);
 		GetComponent<Light> ().color = color;
