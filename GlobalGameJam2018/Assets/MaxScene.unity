@@ -1204,6 +1204,7 @@ MonoBehaviour:
   camera_rotate_amount: 100
   movement_speed: 10
   the_hive: {fileID: 0}
+  move_offset: {x: 0, y: 0, z: 0}
 --- !u!54 &834151310
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2919,6 +2920,7 @@ GameObject:
   - component: {fileID: 1765219172}
   - component: {fileID: 1765219171}
   - component: {fileID: 1765219170}
+  - component: {fileID: 1765219175}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -3005,6 +3007,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1765219175
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1765219169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.96, z: 0}
 --- !u!1 &1934675729
 GameObject:
   m_ObjectHideFlags: 0
