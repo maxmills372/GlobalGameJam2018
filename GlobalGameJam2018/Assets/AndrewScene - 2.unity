@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ground: {fileID: 1932729770}
+  speed: 0
 --- !u!1 &622736604
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +379,7 @@ MonoBehaviour:
   max_number: 10
   display: {fileID: 2041274480}
   target: {fileID: 573259919}
+  detec_player: 0
 --- !u!1 &654975956
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +573,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 820692367}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 57.1, y: 8.42, z: -16.18}
+  m_LocalPosition: {x: 57.1, y: 8.42, z: -28.5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2060887841}
@@ -660,6 +662,7 @@ MonoBehaviour:
   camera_rotate_amount: 100
   movement_speed: 10
   the_hive: {fileID: 1518466337}
+  move_offset: {x: 0, y: 0, z: 0}
 --- !u!143 &820692375
 CharacterController:
   m_ObjectHideFlags: 0
@@ -924,6 +927,8 @@ MonoBehaviour:
   start: {fileID: 1518466337}
   player: {fileID: 820692367}
   hive_actual: {fileID: 1338590972}
+  counter: 
+  maximum: 
   start_count: 100
   zomb: {fileID: 1791904225540264, guid: b29a1023a86673c4096d997aeec20db4, type: 2}
   comfort_zone: 0.4

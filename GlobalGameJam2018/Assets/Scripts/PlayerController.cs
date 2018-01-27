@@ -72,8 +72,10 @@ public class PlayerController : MonoBehaviour
 	// Player movements, obviously
 	void PlayerMovement()
 	{
-		x_speed = Input.GetAxis ("PlayerHorz") * movement_speed;
-		z_speed = Input.GetAxis ("PlayerVert") * movement_speed;
+		x_speed = Input.GetAxis ("Horizontal") * movement_speed;
+		z_speed = Input.GetAxis ("Vertical") * movement_speed;
+
+		print("X: " + x_speed + " Z: " + z_speed);
 
 		Vector3 speed = (new Vector3 (x_speed, 0.0f, z_speed));
 
