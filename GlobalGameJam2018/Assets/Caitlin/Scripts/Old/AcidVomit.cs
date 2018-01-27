@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class AcidVomit : MonoBehaviour {
 
-    public Transform aVom;
+    public Transform aVomPrefab;
     public GameObject yellowZom;
 
-	public Transform newone;
+	public Transform aVom;
 
     // Use this for initialization
     void Start ()
     {
         for (int i = 0; i < 10; i++)
         {
-            newone = Instantiate(aVom, new Vector3(yellowZom.transform.position.x, yellowZom.transform.position.y, yellowZom.transform.position.z + 1), Quaternion.identity); 
+			aVom = Instantiate(aVomPrefab, new Vector3(yellowZom.transform.position.x, yellowZom.transform.position.y, yellowZom.transform.position.z + 1), Quaternion.identity); 
 			//newone.transform.Translate(Vector
         }
     }
