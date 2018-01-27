@@ -1,0 +1,138 @@
+fileFormatVersion: 2
+guid: f9f628552a589a9438c384ab46e13525
+timeCreated: 1517081629
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Console_Unit2:console
+    100002: Console_Unit2:error_light1
+    100004: Console_Unit2:error_light2
+    100006: Console_Unit2:error_light3
+    100008: Console_Unit2:group
+    100010: Console_Unit2:on_button_panel
+    100012: Console_Unit2:on_light
+    100014: Console_Unit2:pCylinder1
+    100016: Console_Unit2:pCylinder2
+    100018: Console_Unit2:pCylinder3
+    100020: Console_Unit2:pCylinder4
+    100022: Console_Unit2:transform1
+    100024: Console_Unit2:transform2
+    100026: Console_Unit2:transform3
+    100028: Console_Unit2:transform4
+    100030: Console_Unit2:vent
+    100032: //RootNode
+    400000: Console_Unit2:console
+    400002: Console_Unit2:error_light1
+    400004: Console_Unit2:error_light2
+    400006: Console_Unit2:error_light3
+    400008: Console_Unit2:group
+    400010: Console_Unit2:on_button_panel
+    400012: Console_Unit2:on_light
+    400014: Console_Unit2:pCylinder1
+    400016: Console_Unit2:pCylinder2
+    400018: Console_Unit2:pCylinder3
+    400020: Console_Unit2:pCylinder4
+    400022: Console_Unit2:transform1
+    400024: Console_Unit2:transform2
+    400026: Console_Unit2:transform3
+    400028: Console_Unit2:transform4
+    400030: Console_Unit2:vent
+    400032: //RootNode
+    2300000: Console_Unit2:console
+    2300002: Console_Unit2:error_light1
+    2300004: Console_Unit2:error_light2
+    2300006: Console_Unit2:error_light3
+    2300008: Console_Unit2:on_button_panel
+    2300010: Console_Unit2:on_light
+    2300012: Console_Unit2:vent
+    3300000: Console_Unit2:console
+    3300002: Console_Unit2:error_light1
+    3300004: Console_Unit2:error_light2
+    3300006: Console_Unit2:error_light3
+    3300008: Console_Unit2:on_button_panel
+    3300010: Console_Unit2:on_light
+    3300012: Console_Unit2:vent
+    4300000: Console_Unit2:console
+    4300002: Console_Unit2:vent
+    4300004: Console_Unit2:on_button_panel
+    4300006: Console_Unit2:error_light3
+    4300008: Console_Unit2:error_light2
+    4300010: Console_Unit2:error_light1
+    4300012: Console_Unit2:on_light
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
