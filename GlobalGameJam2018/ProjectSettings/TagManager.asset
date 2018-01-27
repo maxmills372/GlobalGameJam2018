@@ -9,6 +9,7 @@ TagManager:
   - Grey
   - Red
   - Crater
+  - VomitWall
   layers:
   - Default
   - TransparentFX
