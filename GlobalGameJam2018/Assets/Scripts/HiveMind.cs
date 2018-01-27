@@ -136,6 +136,8 @@ public class HiveMind : MonoBehaviour
 			move.x += x_speed * Time.deltaTime;
 			move.z += z_speed * Time.deltaTime;
 
+			move = player.GetComponent<PlayerController> ().GetCameraParentTransform ().rotation * move;
+
 			hive_actual.transform.position += move;
 		}
 	}

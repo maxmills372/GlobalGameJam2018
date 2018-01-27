@@ -64,6 +64,11 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	public Transform GetCameraParentTransform()
+	{
+		return camera_parent.transform;
+	}
+
 	// Player movements, obviously
 	void PlayerMovement()
 	{
