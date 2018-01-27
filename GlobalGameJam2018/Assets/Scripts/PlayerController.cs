@@ -53,12 +53,12 @@ public class PlayerController : MonoBehaviour
 	void CameraControl()
 	{
 		// Rotates the camera anti-clockwise
-		if (Input.GetKey (KeyCode.Alpha2)) 
+		if (Input.GetAxis ("CameraH") < -0.5f) 
 		{
 			camera_parent.transform.Rotate (new Vector3 (0.0f, -camera_rotate_amount * Time.deltaTime, 0.0f));
 		}
 		// Rotates the camera clockwise
-		else if (Input.GetKey (KeyCode.Alpha3)) 
+		else if (Input.GetAxis ("CameraH") > 0.5f) 
 		{
 			camera_parent.transform.Rotate (new Vector3 (0.0f, camera_rotate_amount * Time.deltaTime, 0.0f));
 		}
@@ -75,8 +75,6 @@ public class PlayerController : MonoBehaviour
 		x_speed = Input.GetAxis ("Horizontal") * movement_speed;
 		z_speed = Input.GetAxis ("Vertical") * movement_speed;
 
-		print("X: " + x_speed + " Z: " + z_speed);
-
 		Vector3 speed = (new Vector3 (x_speed, 0.0f, z_speed));
 
 		speed = camera_parent.transform.rotation * speed;
@@ -90,11 +88,36 @@ public class PlayerController : MonoBehaviour
 		character_controller.Move (speed * Time.deltaTime);
 	}
 
+	void Button_Input()
+	{
+		if (Input.GetButtonDown("Send_Red"))
+		{
+			print("Red was sent");
+		}
+		if (Input.GetButtonDown("Send_Blue"))
+		{
+			print("Blue was sent");
+		}
+		if (Input.GetButtonDown("Send_Yellow"))
+		{
+			print("Yellow was sent");
+		}
+		if (Input.GetButtonDown("Pulse"))
+		{
+			print("Pulse");
+		}
+		if (Input.GetButtonDown("Seperate"))
+		{
+			print("Z0MZ seperated");
+		}
+	}
+
 	// Update is called once per frame
 	void Update ()
 	{
 		CameraControl ();
 		PlayerMovement ();
+		Button_Input ();
 		if (move_offset != Vector3.zero) 
 		{
 			Vector3 nm = move_offset;
