@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
 	CharacterController character_controller;
 
-
+	public Vector3 move_offset = Vector3.zero;
 
 	// Use this for initialization
 	void Start () 
@@ -44,6 +44,11 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	void MoveBack(Vector3 pos)
+	{
+		move_offset = new Vector3 (0.0f, 0.0f, (60.0f - Vector3.Distance (pos, gameObject.transform.position)));
+		move_offset *= Time.deltaTime * 100.0f;
+	}
 
 	void CameraControl()
 	{
@@ -65,9 +70,10 @@ public class PlayerController : MonoBehaviour
 		x_speed = Input.GetAxis ("PlayerHorz") * movement_speed;
 		z_speed = Input.GetAxis ("PlayerVert") * movement_speed;
 
-		Vector3 speed = new Vector3 (x_speed, 0.0f, z_speed);
+		Vector3 speed = (new Vector3 (x_speed, 0.0f, z_speed));
 
 		speed = camera_parent.transform.rotation * speed;
+		speed += move_offset;
 
 		if (character_controller.isGrounded != true) 
 		{
@@ -82,5 +88,12 @@ public class PlayerController : MonoBehaviour
 	{
 		CameraControl ();
 		PlayerMovement ();
+		if (move_offset != Vector3.zero) 
+		{
+			Vector3 nm = move_offset;
+			nm.Normalize ();
+			move_offset = move_offset - nm;
+		}
+
 	}
 }
