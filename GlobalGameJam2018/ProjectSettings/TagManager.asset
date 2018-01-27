@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Yellow
   - Blue
+  - Grey
+  - Red
+  - Crater
   layers:
   - Default
   - TransparentFX
