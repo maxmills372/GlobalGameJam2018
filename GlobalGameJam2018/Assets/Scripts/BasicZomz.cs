@@ -116,11 +116,12 @@ public class BasicZomz : MonoBehaviour
 				// Check if other zom is not grey
 				if(col.gameObject.GetComponent<BasicZomz>().zom_colour != Zom_Colour.GREY)
 				{
-					//Set colour to the colour of the other zom
-					zom_colour = col.gameObject.GetComponent<BasicZomz>().zom_colour;
-
 					// Update the hive
-					hive_mind.GetComponent<HiveMind>().Change_Colour(gameObject, (int)zom_colour);
+					if(hive_mind.GetComponent<HiveMind>().Change_Colour(gameObject, (int)zom_colour))
+					{
+						//Set colour to the colour of the other zom
+						zom_colour = col.gameObject.GetComponent<BasicZomz>().zom_colour;
+					}
 				}
 			}
 		}

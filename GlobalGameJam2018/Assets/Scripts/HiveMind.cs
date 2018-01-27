@@ -164,7 +164,7 @@ public class HiveMind : MonoBehaviour
 	}
 
 	// Change colour of a Z0M
-	public void Change_Colour (GameObject target_zom, int new_colour)
+	public bool Change_Colour (GameObject target_zom, int new_colour)
 	{
 		//Check if there can be more of this colour
 		if (counter[(int)new_colour] < maximum[(int)new_colour])
@@ -200,7 +200,20 @@ public class HiveMind : MonoBehaviour
 				// Remove a grey and add one of the new colour
 				counter[(int)Zom_Colour.GREY]--;
 				counter[(int)new_colour]++;
+
+				// Change has occurred
+				return true;
 			}
+			else
+			{
+				//No change
+				return false;
+			}
+		}
+		else
+		{
+			//No change
+			return false;
 		}
 	}
 

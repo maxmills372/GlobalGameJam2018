@@ -571,7 +571,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 820692367}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 57.1, y: 8.42, z: -16.18}
+  m_LocalPosition: {x: -17.4, y: 8.42, z: 35.9}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2060887841}
@@ -924,6 +924,8 @@ MonoBehaviour:
   start: {fileID: 1518466337}
   player: {fileID: 820692367}
   hive_actual: {fileID: 1338590972}
+  counter: 
+  maximum: 
   start_count: 100
   zomb: {fileID: 1791904225540264, guid: b29a1023a86673c4096d997aeec20db4, type: 2}
   comfort_zone: 0.4
