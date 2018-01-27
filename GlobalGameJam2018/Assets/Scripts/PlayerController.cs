@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
 	public float movement_speed;
 
+	public GameObject the_hive;
+
 	CharacterController character_controller;
 
 	List<BasicZomz> basic_zombz = new List<BasicZomz>();
@@ -25,20 +27,32 @@ public class PlayerController : MonoBehaviour
 	}
 
 
-
-	void CameraControl()
+	void OnTriggerEnter(Collider col)
 	{
-		if (Input.GetKey (KeyCode.Alpha2)) 
+		// Zomb collection
+		if(col.tag == "Zombz")
 		{
-			camera_parent.transform.Rotate (new Vector3 (0.0f, camera_rotate_amount * Time.deltaTime, 0.0f));
-		}
-		else if (Input.GetKey (KeyCode.Alpha3)) 
-		{
-
-			camera_parent.transform.Rotate (new Vector3 (0.0f, -camera_rotate_amount * Time.deltaTime, 0.0f));
+			col.gameObject.SendMessage ("UpdatePlayer", this.gameObject);
+			the_hive.GetComponent<HiveMind> ().AddZomb (col.gameObject);
 		}
 	}
 
+
+	void CameraControl()
+	{
+		// Rotates the camera anti-clockwise
+		if (Input.GetKey (KeyCode.Alpha2)) 
+		{
+			camera_parent.transform.Rotate (new Vector3 (0.0f, -camera_rotate_amount * Time.deltaTime, 0.0f));
+		}
+		// Rotates the camera clockwise
+		else if (Input.GetKey (KeyCode.Alpha3)) 
+		{
+			camera_parent.transform.Rotate (new Vector3 (0.0f, camera_rotate_amount * Time.deltaTime, 0.0f));
+		}
+	}
+
+	// Player movements, obviously
 	void PlayerMovement()
 	{
 		x_speed = Input.GetAxis ("PlayerHorz") * movement_speed;
@@ -61,6 +75,5 @@ public class PlayerController : MonoBehaviour
 	{
 		CameraControl ();
 		PlayerMovement ();
-
 	}
 }
