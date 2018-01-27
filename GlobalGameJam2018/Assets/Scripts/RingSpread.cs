@@ -21,7 +21,7 @@ public class RingSpread : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(KeyCode.F))
         {
             gameObject.transform.localScale = default_scale;
 
@@ -38,7 +38,7 @@ public class RingSpread : MonoBehaviour
 
     IEnumerator Grow()
     {
-
+		
         while (gameObject.transform.localScale.x <= max_scale)
         {
             gameObject.transform.localScale *= scale_factor;
@@ -46,10 +46,7 @@ public class RingSpread : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("OH HELO THER");
-
-
-
+        
         StopCoroutine("FadeOut");
         StartCoroutine("FadeOut");
         
@@ -68,6 +65,7 @@ public class RingSpread : MonoBehaviour
 
             yield return null;
         }
-        Debug.Log("ndkjgn");
+
+		gameObject.transform.localScale = default_scale;
     }
 }

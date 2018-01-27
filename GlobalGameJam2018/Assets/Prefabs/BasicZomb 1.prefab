@@ -246,8 +246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8f726571c69a343a959a9d1f60a85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zom_colour: 0
   player_location: {fileID: 0}
   id: 0
+  hive_mind: {fileID: 0}
   min_distance: 5
   nearby_zombz: []
   comfort_zone: 0
@@ -285,7 +287,7 @@ CharacterController:
   m_GameObject: {fileID: 1791904225540264}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5

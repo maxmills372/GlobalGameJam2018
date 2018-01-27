@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class BasicZomz : MonoBehaviour 
 {
-	enum Zom_Colour
+	public enum Zom_Colour
 	{
 		GREY,
 		RED,
@@ -15,7 +15,7 @@ public class BasicZomz : MonoBehaviour
 	}
 
 	// The colour that the zom is
-	Zom_Colour zom_colour;	
+	public Zom_Colour zom_colour;	
 	Color color;
 
 	public UnityEngine.AI.NavMeshAgent agent { get; private set; } 
@@ -23,7 +23,7 @@ public class BasicZomz : MonoBehaviour
 
 	public int id;
 
-
+	public GameObject hive_mind;	// The hive mind all the Z0MZ are a part of
 
 	public float min_distance;
 
@@ -98,6 +98,8 @@ public class BasicZomz : MonoBehaviour
 		}
 		this_renderer.material.color = color;
 		GetComponent<Light> ().color = color;
+
+		hive_mind = GameObject.Find("ZombHive");
 	}
 
 	// Adds the nearby zomb to the nearby list
@@ -117,33 +119,10 @@ public class BasicZomz : MonoBehaviour
 					//Set colour to the colour of the other zom
 					zom_colour = col.gameObject.GetComponent<BasicZomz>().zom_colour;
 
-					// Find the renderer
-					Renderer this_renderer = gameObject.GetComponent<Renderer>();
-
-					// Change colour to object colour
-					switch (zom_colour)
-					{
-					case Zom_Colour.GREY:
-						color = Color.grey;
-						break;
-					case Zom_Colour.RED:
-						color = Color.red;
-						break;
-					case Zom_Colour.BLUE:
-						color = Color.blue;
-						break;
-					case Zom_Colour.YELLOW:
-						color = Color.yellow;
-						break;
-					default:
-						color = Color.black;
-						break;
-					}
-					this_renderer.material.color = color;
-					GetComponent<Light> ().color = color;
+					// Update the hive
+					hive_mind.GetComponent<HiveMind>().Change_Colour(gameObject, (int)zom_colour);
 				}
 			}
-
 		}
 	}
 
