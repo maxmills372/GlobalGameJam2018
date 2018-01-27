@@ -34,12 +34,12 @@ public class HiveMind : MonoBehaviour
 		{
 			Vector3 pos = start.transform.position;
 			if (i < 50) {
-				pos.x += i * 2.0f;
+				pos.x += i * 3.0f;
 			} 
 			else 
 			{
 				pos.x += i * 2.0f - 50.0f;
-				j = 2;
+				j = 5;
 			}
 			pos.z += j;
 			GameObject temp_zomb = Instantiate (zomb, pos, Quaternion.identity, transform);
@@ -52,6 +52,7 @@ public class HiveMind : MonoBehaviour
 		}
 	}
 
+	// adds a zomb to the hive, parents it to the correct gameobject, and tells it if the hive is currently following the player
 	public void AddZomb(GameObject zomb)
 	{
 		if (the_hive.Contains (zomb) != true) 
@@ -63,9 +64,19 @@ public class HiveMind : MonoBehaviour
 		}
 	}
 
-	void UpdateHiveCentre()
+	public void RemoveZomb(GameObject zomb)
 	{
-		
+		if (the_hive.Contains (zomb) == true) 
+		{
+			zomb.SendMessage ("Release");
+			the_hive.Remove (zomb);
+			hive_count--;
+		}
+	}
+
+	// calculates the average poaition of the hive, i.e the centre, and then updates each zomb with said position
+	void UpdateHiveCentre()
+	{		
 		if (the_hive.Count > 0)
 		{
 			foreach (GameObject obj in the_hive) 

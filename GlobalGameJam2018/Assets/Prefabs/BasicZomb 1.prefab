@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 54201442821650538}
   - component: {fileID: 136375657246186418}
   - component: {fileID: 108586570357489864}
+  - component: {fileID: 143416940740673416}
   m_Layer: 8
   m_Name: BasicZomb 1
   m_TagString: Zombz
@@ -275,6 +276,23 @@ CapsuleCollider:
   m_Radius: 2
   m_Height: 2
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!143 &143416940740673416
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791904225540264}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &195913685057688254
 NavMeshAgent:

@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
 	CharacterController character_controller;
 
-	List<BasicZomz> basic_zombz = new List<BasicZomz>();
+
 
 	// Use this for initialization
 	void Start () 
@@ -32,8 +32,15 @@ public class PlayerController : MonoBehaviour
 		// Zomb collection
 		if(col.tag == "Zombz")
 		{
-			col.gameObject.SendMessage ("UpdatePlayer", this.gameObject);
-			the_hive.GetComponent<HiveMind> ().AddZomb (col.gameObject);
+			if (Input.GetKey (KeyCode.F)) 
+			{
+				the_hive.GetComponent<HiveMind> ().RemoveZomb (col.gameObject);
+			} 
+			else 
+			{
+				col.gameObject.SendMessage ("UpdatePlayer", this.gameObject);
+				the_hive.GetComponent<HiveMind> ().AddZomb (col.gameObject);
+			}
 		}
 	}
 

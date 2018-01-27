@@ -6,18 +6,28 @@ using UnityEngine;
 
 public class BasicZomz : MonoBehaviour 
 {
+	enum Zom_Colour
+	{
+		GREY,
+		RED,
+		BLUE,
+		YELLOW
+	}
+
+	// The colour that the zom is
+	Zom_Colour zom_colour;	
+	Color color;
+
 	public UnityEngine.AI.NavMeshAgent agent { get; private set; } 
 	public GameObject player_location;
 
 	public int id;
 
-	bool following = true;
+
 
 	public float min_distance;
 
 	public List<GameObject> nearby_zombz = new List<GameObject> ();
-
-	Vector3 movement_offset = Vector3.zero;
 
 	bool is_following = true;
 	bool is_collected = false;
@@ -38,6 +48,56 @@ public class BasicZomz : MonoBehaviour
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		agent.updatePosition = false;
 		agent.updateRotation = false;
+
+		// A random number
+		int rando = Random.Range(0, 10);
+
+		// Assign random colour
+		if (rando < 7)
+		{
+			zom_colour = Zom_Colour.GREY;
+		}
+		else if (rando == 7)
+		{
+			zom_colour = Zom_Colour.RED;
+		}
+		else if (rando == 8)
+		{
+			zom_colour = Zom_Colour.BLUE;
+		}
+		else if (rando == 9)
+		{
+			zom_colour = Zom_Colour.YELLOW;
+		}
+		else
+		{
+			print("Fuck");
+		}
+
+		// Find the renderer
+		Renderer this_renderer = gameObject.GetComponent<Renderer>();
+
+		// Change colour to object colour
+		switch (zom_colour)
+		{
+		case Zom_Colour.GREY:
+			color = Color.grey;
+			break;
+		case Zom_Colour.RED:
+			color = Color.red;
+			break;
+		case Zom_Colour.BLUE:
+			color = Color.blue;
+			break;
+		case Zom_Colour.YELLOW:
+			color = Color.yellow;
+			break;
+		default:
+			color = Color.black;
+			break;
+		}
+		this_renderer.material.color = color;
+		GetComponent<Light> ().color = color;
 	}
 
 	// Adds the nearby zomb to the nearby list
@@ -47,6 +107,43 @@ public class BasicZomz : MonoBehaviour
 		{
 
 			nearby_zombz.Add (col.gameObject);
+
+			// Check if this zom is grey
+			if (zom_colour == Zom_Colour.GREY)
+			{ 
+				// Check if other zom is not grey
+				if(col.gameObject.GetComponent<BasicZomz>().zom_colour != Zom_Colour.GREY)
+				{
+					//Set colour to the colour of the other zom
+					zom_colour = col.gameObject.GetComponent<BasicZomz>().zom_colour;
+
+					// Find the renderer
+					Renderer this_renderer = gameObject.GetComponent<Renderer>();
+
+					// Change colour to object colour
+					switch (zom_colour)
+					{
+					case Zom_Colour.GREY:
+						color = Color.grey;
+						break;
+					case Zom_Colour.RED:
+						color = Color.red;
+						break;
+					case Zom_Colour.BLUE:
+						color = Color.blue;
+						break;
+					case Zom_Colour.YELLOW:
+						color = Color.yellow;
+						break;
+					default:
+						color = Color.black;
+						break;
+					}
+					this_renderer.material.color = color;
+					GetComponent<Light> ().color = color;
+				}
+			}
+
 		}
 	}
 
@@ -90,6 +187,11 @@ public class BasicZomz : MonoBehaviour
 	{
 		player_location = player;
 		is_collected = true;
+	}
+
+	void Release()
+	{
+		is_collected = false;
 	}
 
 	// pushes away nearby zombz, and gets pushed by the player
