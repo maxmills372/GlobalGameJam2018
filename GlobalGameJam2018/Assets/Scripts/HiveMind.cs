@@ -48,20 +48,6 @@ public class HiveMind : MonoBehaviour
 		}
 	}
 
-	Vector3 Repulsion(int id)
-	{
-		Vector3 returnVect = Vector3.zero;
-
-		for (int b = 0; b < hive_count; b++)
-		{
-			if ((b != id)&&((the_hive[id].transform.position - the_hive[b].transform.position).magnitude < comfort_zone))
-			{
-				returnVect = returnVect - (the_hive [b].transform.position - the_hive [id].transform.position);
-			}
-		}
-		return returnVect;
-	}
-
 	// Update is called once per frame
 	void Update () 
 	{

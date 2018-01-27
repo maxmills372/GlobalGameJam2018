@@ -15,7 +15,7 @@ public class AcidVomit : MonoBehaviour {
         for (int i = 0; i < 10; i++)
         {
             newone = Instantiate(aVom, new Vector3(yellowZom.transform.position.x, yellowZom.transform.position.y, yellowZom.transform.position.z + 1), Quaternion.identity); 
-			newone.transform.Translate(Vector
+			//newone.transform.Translate(Vector
         }
     }
 	

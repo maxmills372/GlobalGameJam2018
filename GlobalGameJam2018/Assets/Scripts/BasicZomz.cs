@@ -31,7 +31,7 @@ public class BasicZomz : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		GameObject temp = GameObject.Find ("PlayerBody");
+		GameObject temp = GameObject.Find ("Player");
 		player_location = temp;
 
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -127,7 +127,7 @@ public class BasicZomz : MonoBehaviour
 		{
 			transform.position = transform.position + new Vector3 (0.0f, -10.0f, 0.0f) * Time.deltaTime;
 		}
-
+			
 		agent.nextPosition = transform.position;
 	}
 }
