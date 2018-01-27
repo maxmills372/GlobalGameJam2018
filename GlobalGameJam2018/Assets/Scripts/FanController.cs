@@ -64,8 +64,6 @@ public class FanController : MonoBehaviour
 		if (active) 
 		{
 			fan.transform.Rotate (new Vector3 (0.0f, speed * Time.deltaTime, 0.0f));
-
-			Debug.Log (speed);
 		}
 	}
 }
