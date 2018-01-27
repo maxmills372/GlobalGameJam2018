@@ -5,10 +5,10 @@ using UnityEngine;
 public class Enviroment_Manager : MonoBehaviour {
 
     public GameObject BlueZom;
-    public GameObject RedZomb;
-    public GameObject YellowZomb;
-    public GameObject GreyZomb;
-    public GameObject Crater;
+    public GameObject RedZom;
+    public GameObject YellowZom;
+    public GameObject GreyZom;
+    public GameObject vomitWall;
 
     // Use this for initialization
     void Start ()
@@ -17,7 +17,7 @@ public class Enviroment_Manager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void Update ()   
     {
 		
 	}
