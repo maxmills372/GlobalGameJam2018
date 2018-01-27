@@ -30,9 +30,6 @@ public class RingSpread : MonoBehaviour
 
             StopCoroutine("Grow");
             StartCoroutine("Grow");
-
-           
-
         }
     }
 
