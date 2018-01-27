@@ -24,6 +24,7 @@ public class HiveMind : MonoBehaviour
 
 	//int hive_count = 0;
 	public int[] counter;
+	public int[] maximum;
 
 	public int start_count;
 
@@ -65,6 +66,7 @@ public class HiveMind : MonoBehaviour
 
 		// Initialise counters
 		counter = new int[4] {0,0,0,0};
+		maximum = new int[4] {100,0,0,0};
 	}
 
 	// adds a zomb to the hive, parents it to the correct gameobject, and tells it if the hive is currently following the player
@@ -77,6 +79,9 @@ public class HiveMind : MonoBehaviour
 			zomb.transform.SetParent (hive_actual.transform);
 			zomb.SendMessage ("ToggleFollow", is_following);
 		}
+
+		// Recalculate the maximum of the Z0MZ
+		Calculate_Maximum();
 	}
 
 	public void RemoveZomb(GameObject zomb)
@@ -87,6 +92,9 @@ public class HiveMind : MonoBehaviour
 			the_hive.Remove (zomb);
 			Hive_Count();
 		}
+
+		// Recalculate the maximum of the Z0MZ
+		Calculate_Maximum();
 	}
 
 	// calculates the average poaition of the hive, i.e the centre, and then updates each zomb with said position
@@ -158,42 +166,67 @@ public class HiveMind : MonoBehaviour
 	}
 
 	// Change colour of a Z0M
-	public void Change_Colour (GameObject target_zom, int new_colour)
+	public bool Change_Colour (GameObject target_zom, int new_colour)
 	{
-		// Check for this Z0M in the hive mind
-		if (the_hive.Contains (target_zom))
+		//Check if there can be more of this colour
+		if (counter[(int)new_colour] < maximum[(int)new_colour])
 		{
-			// Find the renderer
-			Renderer this_renderer = target_zom.GetComponent<Renderer>();
-
-			// Create colour variable
-			Color color;
-
-			// Change colour to object colour
-			switch (new_colour)
+			// Check for this Z0M in the hive mind
+			if (the_hive.Contains (target_zom))
 			{
-			case (int)Zom_Colour.GREY:
-				color = Color.grey;
-				break;
-			case (int)Zom_Colour.RED:
-				color = Color.red;
-				break;
-			case (int)Zom_Colour.BLUE:
-				color = Color.blue;
-				break;
-			case (int)Zom_Colour.YELLOW:
-				color = Color.yellow;
-				break;
-			default:
-				color = Color.black;
-				break;
-			}
-			this_renderer.material.color = color;
-			target_zom.GetComponent<Light> ().color = color;
+				// Find the renderer
+				Renderer this_renderer = target_zom.GetComponent<Renderer>();
 
-			// Remove a grey and add one of the new colour
-			counter[(int)Zom_Colour.GREY]--;
-			counter[(int)new_colour]++;
+				// Create colour variable
+				Color color;
+
+				// Change colour to object colour
+				switch (new_colour)
+				{
+				case (int)Zom_Colour.RED:
+					color = Color.red;
+					break;
+				case (int)Zom_Colour.BLUE:
+					color = Color.blue;
+					break;
+				case (int)Zom_Colour.YELLOW:
+					color = Color.yellow;
+					break;
+				default:
+					color = Color.black;
+					break;
+				}
+				this_renderer.material.color = color;
+				target_zom.GetComponent<Light> ().color = color;
+
+				// Remove a grey and add one of the new colour
+				counter[(int)Zom_Colour.GREY]--;
+				counter[(int)new_colour]++;
+
+				// Change has occurred
+				return true;
+			}
+			else
+			{
+				//No change
+				return false;
+			}
 		}
+		else
+		{
+			//No change
+			return false;
+		}
+	}
+
+	void Calculate_Maximum()
+	{
+		// Calculate total Z0MZ
+		int total = counter[(int)Zom_Colour.GREY] + counter[(int)Zom_Colour.RED] + counter[(int)Zom_Colour.BLUE] + counter[(int)Zom_Colour.YELLOW];
+		
+		//Find individual maximums
+		maximum[(int)Zom_Colour.RED] = total / 3;
+		maximum[(int)Zom_Colour.BLUE] = maximum[(int)Zom_Colour.RED];
+		maximum[(int)Zom_Colour.YELLOW] = total - maximum[(int)Zom_Colour.BLUE] - maximum[(int)Zom_Colour.RED];
 	}
 }
