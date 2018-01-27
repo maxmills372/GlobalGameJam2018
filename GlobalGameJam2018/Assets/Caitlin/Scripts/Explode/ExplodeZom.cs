@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExplodeZom : MonoBehaviour {
 
-	public Rigidbody rb;
+	private Rigidbody rb;
 	public GameObject redZom;
 
 	private float radius = 5.0f;
@@ -21,7 +21,6 @@ public class ExplodeZom : MonoBehaviour {
 
 		// Set explode pos to redZom pos
 		explosionPos = redZom.transform.position;
-
 	
 
 
@@ -32,6 +31,8 @@ public class ExplodeZom : MonoBehaviour {
 		// Check if 'a' is pressed
 		if (Input.GetKeyDown ("a")) 
 		{
+			// Set parent to null
+			gameObject.transform.parent = null;
 			// Set kinimatic to false
 			rb.isKinematic = false;
 			// Add explode force
