@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Yellow
+  - VomitWall
+  - Grey
+  - Red
+  - Zombz
+  - Battery
+  - Fan
+  - Wire
+  - Blue
   layers:
   - Default
   - TransparentFX
