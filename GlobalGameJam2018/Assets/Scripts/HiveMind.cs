@@ -13,7 +13,18 @@ public class HiveMind : MonoBehaviour
 
 	public GameObject hive_actual;
 
-	int hive_count = 0;
+	// The different colours
+	public enum Zom_Colour
+	{
+		GREY,
+		RED,
+		BLUE,
+		YELLOW
+	}
+
+	//int hive_count = 0;
+	public int[] counter;
+
 	public int start_count;
 
 	public GameObject zomb;
@@ -49,7 +60,11 @@ public class HiveMind : MonoBehaviour
 
 			temp_sript.comfort_zone = comfort_zone;
 
+
 		}
+
+		// Initialise counters
+		counter = new int[4] {0,0,0,0};
 	}
 
 	// adds a zomb to the hive, parents it to the correct gameobject, and tells it if the hive is currently following the player
@@ -58,7 +73,7 @@ public class HiveMind : MonoBehaviour
 		if (the_hive.Contains (zomb) != true) 
 		{
 			the_hive.Add (zomb);
-			hive_count++;
+			Hive_Count();
 			zomb.transform.SetParent (hive_actual.transform);
 			zomb.SendMessage ("ToggleFollow", is_following);
 		}
@@ -70,7 +85,7 @@ public class HiveMind : MonoBehaviour
 		{
 			zomb.SendMessage ("Release");
 			the_hive.Remove (zomb);
-			hive_count--;
+			Hive_Count();
 		}
 	}
 
@@ -84,9 +99,9 @@ public class HiveMind : MonoBehaviour
 				hive_centre += obj.transform.position;
 			}
 
-			hive_centre.x /= hive_count;
-			hive_centre.y /= hive_count;
-			hive_centre.z /= hive_count;
+			hive_centre.x /= (counter[0] + counter[1] + counter[2] + counter[3]);
+			hive_centre.y /= (counter[0] + counter[1] + counter[2] + counter[3]);
+			hive_centre.z /= (counter[0] + counter[1] + counter[2] + counter[3]);
 
 			foreach (GameObject obj in the_hive) 
 			{
@@ -123,7 +138,60 @@ public class HiveMind : MonoBehaviour
 
 			hive_actual.transform.position += move;
 		}
+	}
 
+	// Count all the colours of the Z0MZ
+	void Hive_Count ()
+	{
+		// Reset the counter
+		counter = new int[4]{0,0,0,0};
 
+		if (the_hive.Count > 0)
+		{
+			foreach (GameObject obj in the_hive) 
+			{
+				counter[(int)obj.GetComponent<BasicZomz>().zom_colour]++;
+			}
+		}
+	}
+
+	// Change colour of a Z0M
+	public void Change_Colour (GameObject target_zom, int new_colour)
+	{
+		// Check for this Z0M in the hive mind
+		if (the_hive.Contains (target_zom))
+		{
+			// Find the renderer
+			Renderer this_renderer = target_zom.GetComponent<Renderer>();
+
+			// Create colour variable
+			Color color;
+
+			// Change colour to object colour
+			switch (new_colour)
+			{
+			case (int)Zom_Colour.GREY:
+				color = Color.grey;
+				break;
+			case (int)Zom_Colour.RED:
+				color = Color.red;
+				break;
+			case (int)Zom_Colour.BLUE:
+				color = Color.blue;
+				break;
+			case (int)Zom_Colour.YELLOW:
+				color = Color.yellow;
+				break;
+			default:
+				color = Color.black;
+				break;
+			}
+			this_renderer.material.color = color;
+			target_zom.GetComponent<Light> ().color = color;
+
+			// Remove a grey and add one of the new colour
+			counter[(int)Zom_Colour.GREY]--;
+			counter[(int)new_colour]++;
+		}
 	}
 }

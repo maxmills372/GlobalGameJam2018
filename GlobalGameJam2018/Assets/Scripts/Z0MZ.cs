@@ -17,6 +17,8 @@ public class Z0MZ : MonoBehaviour {
 
 	public float speed;	// The speed of the Z0M
 
+	GameObject world_manager;	// The world manager object
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -48,6 +50,9 @@ public class Z0MZ : MonoBehaviour {
 		// Find the renderer
 		Renderer this_renderer = gameObject.GetComponent<Renderer>();
 
+		// Find the manager
+		world_manager = GameObject.Find("World_Manager");
+
 		// Change colour to object colour
 		switch (zom_colour)
 		{
@@ -64,6 +69,7 @@ public class Z0MZ : MonoBehaviour {
 			this_renderer.material.color = Color.yellow;
 			break;
 		default:
+			// If a Z0M is black, there has been a problem
 			this_renderer.material.color = Color.black;
 			break;
 		}
@@ -101,6 +107,7 @@ public class Z0MZ : MonoBehaviour {
 					this_renderer.material.color = Color.grey;
 					break;
 				case Zom_Colour.RED:
+					 
 					this_renderer.material.color = Color.red;
 					break;
 				case Zom_Colour.BLUE:
