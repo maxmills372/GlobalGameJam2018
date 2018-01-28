@@ -203,9 +203,6 @@ public class HiveMind : MonoBehaviour
 				counter[(int)Zom_Colour.GREY]--;
 				counter[(int)new_colour]++;
 
-				// Re count the colours
-				Hive_Count();
-
 				// Change has occurred
 				return true;
 			}

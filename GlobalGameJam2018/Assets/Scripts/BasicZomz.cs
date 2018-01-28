@@ -96,9 +96,6 @@ public class BasicZomz : MonoBehaviour
 			break;
 		}
 
-
-		print (color);
-
 		//FIXME
 
 	//	mat = GetComponent<Material>();
@@ -130,7 +127,12 @@ public class BasicZomz : MonoBehaviour
 					if(hive_mind.GetComponent<HiveMind>().Change_Colour(gameObject, (int)col.gameObject.GetComponent<BasicZomz>().zom_colour))
 					{
 						//Set colour to the colour of the other zom
+						print ("Goodbye, Bitch");
 						zom_colour = col.gameObject.GetComponent<BasicZomz>().zom_colour;
+					}
+					else
+					{
+						print ("Hello, Bitch");
 					}
 				}
 			}
