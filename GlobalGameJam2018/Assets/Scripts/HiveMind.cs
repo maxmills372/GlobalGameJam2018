@@ -67,6 +67,8 @@ public class HiveMind : MonoBehaviour
 		// Initialise counters
 		counter = new int[4] {0,0,0,0};
 		maximum = new int[4] {100,0,0,0};
+
+		player = GameObject.Find("Player");
 	}
 
 	// adds a zomb to the hive, parents it to the correct gameobject, and tells it if the hive is currently following the player
