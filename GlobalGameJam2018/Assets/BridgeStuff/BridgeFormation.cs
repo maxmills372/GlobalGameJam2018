@@ -69,7 +69,7 @@ public class BridgeFormation : MonoBehaviour {
                 {
                     if (!stop)
                     {
-                        bridge[i].transform.position = new Vector3(bridge_start_pos.position.x, bridge_start_pos.position.y + (i * 2), bridge_start_pos.position.z);
+                        bridge[i].transform.position = new Vector3(bridge_start_pos.position.x, bridge_start_pos.position.y + (i * (2*bridge[0].transform.localScale.x)), bridge_start_pos.position.z);
                     }
 
                 }

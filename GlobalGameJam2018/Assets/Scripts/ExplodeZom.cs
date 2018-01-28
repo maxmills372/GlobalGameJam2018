@@ -24,7 +24,7 @@ public class ExplodeZom : MonoBehaviour {
 	
 	
 		// Get zone component 
-		zone = GameObject.Find("Zone").GetComponent<ZoneDetect>();
+		//zone = GameObject.Find("Zone_Red").GetComponent<ZoneDetect>();
 
 
 	}
@@ -42,6 +42,8 @@ public class ExplodeZom : MonoBehaviour {
 			rb.isKinematic = false;
 			// Add explode force
 			rb.AddExplosionForce (power, explosionPos, radius, 0.0f, ForceMode.Impulse);
+
+			zone.exploded = true;
 		}
 
 

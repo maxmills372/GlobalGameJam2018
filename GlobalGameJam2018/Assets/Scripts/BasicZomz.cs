@@ -190,6 +190,8 @@ public class BasicZomz : MonoBehaviour
 
 			// EXPLOSIONS!!!!!!!!!!!!!!
 			GetComponent<Rigidbody> ().AddExplosionForce (100.0f, force, comfort_zone);
+
+			Debug.Log("explosion");
 		}
 
 		GetComponent<Rigidbody> ().AddExplosionForce (500.0f, player_location.transform.position, min_distance);

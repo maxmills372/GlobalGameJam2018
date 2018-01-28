@@ -17,7 +17,7 @@ public class End_Of_Bridge : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
 
-        if(col.collider.tag == "EndofBridge") //YOU CAN CHANGE THIS
+        if(col.collider.tag == "Player") //YOU CAN CHANGE THIS
         {
             CreateFixedJoint(col.collider.GetComponent<Rigidbody>());
 

@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 136375657246186418}
   - component: {fileID: 108586570357489864}
   - component: {fileID: 143416940740673416}
+  - component: {fileID: 114187326730812886}
   m_Layer: 8
   m_Name: BasicZomb 1
   m_TagString: Zombz
@@ -74,7 +75,7 @@ Transform:
   m_GameObject: {fileID: 1791904225540264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 63.08747, y: 3.731, z: 141.493}
-  m_LocalScale: {x: 0.32535893, y: 0.32535893, z: 0.32535893}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4201982017951302}
   m_Father: {fileID: 0}
@@ -252,7 +253,21 @@ MonoBehaviour:
   hive_mind: {fileID: 0}
   min_distance: 5
   nearby_zombz: []
-  comfort_zone: 0
+  comfort_zone: 3
+--- !u!114 &114187326730812886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791904225540264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d593351729ec3548b46fa7cc682b008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redZom: {fileID: 0}
+  explosionPos: {x: 0, y: 0, z: 0}
+  zone: {fileID: 0}
 --- !u!136 &136082486561364666
 CapsuleCollider:
   m_ObjectHideFlags: 1

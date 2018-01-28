@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redZom: {fileID: 1248434293}
   explosionPos: {x: 0, y: 0, z: 0}
+  zone: {fileID: 0}
 --- !u!1 &18370321 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100022, guid: 5837277ca199c5147b5cb199437f0b4a, type: 3}
@@ -191,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redZom: {fileID: 1248434293}
   explosionPos: {x: 0, y: 0, z: 0}
+  zone: {fileID: 0}
 --- !u!1001 &29387143
 Prefab:
   m_ObjectHideFlags: 0
@@ -354,6 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redZom: {fileID: 1248434293}
   explosionPos: {x: 0, y: 0, z: 0}
+  zone: {fileID: 0}
 --- !u!1 &148140701 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100040, guid: 5837277ca199c5147b5cb199437f0b4a, type: 3}
@@ -517,6 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redZom: {fileID: 1248434293}
   explosionPos: {x: 0, y: 0, z: 0}
+  zone: {fileID: 0}
 --- !u!1 &351848621 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100018, guid: 5837277ca199c5147b5cb199437f0b4a, type: 3}
@@ -618,7 +622,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &381210532 stripped
 GameObject:
@@ -713,7 +717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &581248526
 AudioListener:
   m_ObjectHideFlags: 0
@@ -880,7 +884,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &749335692 stripped
 GameObject:
@@ -933,6 +937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redZom: {fileID: 1248434293}
   explosionPos: {x: 0, y: 0, z: 0}
+  zone: {fileID: 0}
 --- !u!1 &838107680 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100024, guid: 5837277ca199c5147b5cb199437f0b4a, type: 3}
@@ -1040,6 +1045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redZom: {fileID: 1248434293}
   explosionPos: {x: 0, y: 0, z: 0}
+  zone: {fileID: 0}
 --- !u!1 &995642880 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000013063239222, guid: 843695ef5e6d39f458b99e399ccc09b1,
@@ -1071,7 +1077,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400034, guid: 5837277ca199c5147b5cb199437f0b4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.064726084
+      value: -0.31
       objectReference: {fileID: 0}
     - target: {fileID: 400034, guid: 5837277ca199c5147b5cb199437f0b4a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1079,7 +1085,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400034, guid: 5837277ca199c5147b5cb199437f0b4a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.009831522
+      value: -1.15
       objectReference: {fileID: 0}
     - target: {fileID: 400034, guid: 5837277ca199c5147b5cb199437f0b4a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1274,6 +1280,105 @@ Transform:
   m_PrefabParentObject: {fileID: 4875866601200646, guid: a1994a944fd63de45857b036a568d9de,
     type: 2}
   m_PrefabInternal: {fileID: 1226659747}
+--- !u!1001 &1234715069
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4945710467928110, guid: 8cc9988a17b79e5458947ff2557d138e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.6802988
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945710467928110, guid: 8cc9988a17b79e5458947ff2557d138e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.3224512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945710467928110, guid: 8cc9988a17b79e5458947ff2557d138e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4.1029787
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945710467928110, guid: 8cc9988a17b79e5458947ff2557d138e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945710467928110, guid: 8cc9988a17b79e5458947ff2557d138e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945710467928110, guid: 8cc9988a17b79e5458947ff2557d138e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945710467928110, guid: 8cc9988a17b79e5458947ff2557d138e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945710467928110, guid: 8cc9988a17b79e5458947ff2557d138e, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8cc9988a17b79e5458947ff2557d138e, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1242926514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1242926515}
+  - component: {fileID: 1242926517}
+  - component: {fileID: 1242926516}
+  m_Layer: 0
+  m_Name: Zone
+  m_TagString: zone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1242926515
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1242926514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3.53}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1292813337}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1242926516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1242926514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fe00bba85d36a4f8a4976196f22fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redNum: 0
+  minNum: 0
+  isReady: 0
+  explode: {fileID: 0}
+--- !u!65 &1242926517
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1242926514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.770407, y: 1.2681761, z: 3.4900784}
+  m_Center: {x: 1.0809624, y: -0.13408804, z: -1.2450387}
 --- !u!1 &1248434293 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100034, guid: 5837277ca199c5147b5cb199437f0b4a, type: 3}
@@ -1310,6 +1415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redZom: {fileID: 1248434293}
   explosionPos: {x: 0, y: 0, z: 0}
+  zone: {fileID: 0}
 --- !u!136 &1248434298
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1363,8 +1469,9 @@ Transform:
   - {fileID: 173657922}
   - {fileID: 1832006047}
   - {fileID: 2039393381}
+  - {fileID: 1242926515}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1317643398
 Prefab:
@@ -1473,6 +1580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redZom: {fileID: 1248434293}
   explosionPos: {x: 0, y: 0, z: 0}
+  zone: {fileID: 0}
 --- !u!1 &1760053174 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100026, guid: 5837277ca199c5147b5cb199437f0b4a, type: 3}
@@ -1505,6 +1613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redZom: {fileID: 1248434293}
   explosionPos: {x: 0, y: 0, z: 0}
+  zone: {fileID: 0}
 --- !u!1001 &1780319961
 Prefab:
   m_ObjectHideFlags: 0
@@ -1569,6 +1678,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1781166884}
+  - component: {fileID: 1781166886}
+  - component: {fileID: 1781166885}
   m_Layer: 0
   m_Name: Red
   m_TagString: Red
@@ -1589,8 +1700,47 @@ Transform:
   - {fileID: 1248434294}
   - {fileID: 995642881}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1781166885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1781166883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8f726571c69a343a959a9d1f60a85b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zom_colour: 1
+  player_location: {fileID: 0}
+  id: 0
+  hive_mind: {fileID: 0}
+  min_distance: 0
+  nearby_zombz: []
+  comfort_zone: 0
+--- !u!195 &1781166886
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1781166883}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &1832006046
 Prefab:
   m_ObjectHideFlags: 0
@@ -2067,3 +2217,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redZom: {fileID: 2105166946}
   explosionPos: {x: 0, y: 0, z: 0}
+  zone: {fileID: 0}

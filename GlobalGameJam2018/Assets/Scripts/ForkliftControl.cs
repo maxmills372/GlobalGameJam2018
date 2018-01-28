@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ForkliftControl : MonoBehaviour {
 
-    bool move;
+    public bool move;
     public int button_ID;
 
     public GameObject forklift;
-    public Transform forklift_pos;
+    public float forklift_pos = -0.006f;
 
     // Use this for initialization
     void Start () {
@@ -20,9 +20,9 @@ public class ForkliftControl : MonoBehaviour {
 	void Update () {
 		
         //Forklift
-        if(move && forklift.transform.position.y >= forklift_pos.position.y)
+        if(move && forklift.transform.position.y >= forklift_pos)
         {
-            forklift.transform.Translate(new Vector3(0, 0.1f, 0));
+            forklift.transform.Translate(new Vector3(0, -0.1f, 0));
         }
 	}
     void OnCollisionEnter(Collision col)

@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Zombz
+  - Red
+  - zone
+  - zone_blue
+  - zone_red
+  - zone_yellow
   layers:
   - Default
   - TransparentFX

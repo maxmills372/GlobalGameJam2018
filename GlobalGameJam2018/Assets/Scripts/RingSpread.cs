@@ -21,7 +21,7 @@ public class RingSpread : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetButton("Pulse"))
+		if (Input.GetButtonDown("Pulse"))
         {
             gameObject.transform.localScale = default_scale;
 
