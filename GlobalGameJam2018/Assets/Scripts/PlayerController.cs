@@ -157,4 +157,14 @@ public class PlayerController : MonoBehaviour
 			current_zone = null;
 		}
 	}
+
+    //void OnCollisionEnter(Collision col)
+    //{
+
+    //    if (col.collider.tag == "Finish")
+    //    {
+    //        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(10,0,0));
+    //        Debug.Log("gjsfngk");
+    //    }
+    //}
 }
