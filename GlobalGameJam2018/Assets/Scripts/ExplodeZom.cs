@@ -11,6 +11,8 @@ public class ExplodeZom : MonoBehaviour {
 	private float power = 10.0f;
 	public Vector3 explosionPos;
 
+	public ZoneDetect zone;
+
 	// Use this for initialization
 	void Start() 
 	{
@@ -22,6 +24,8 @@ public class ExplodeZom : MonoBehaviour {
 		// Set explode pos to redZom pos
 		explosionPos = redZom.transform.position;
 	
+		// Get zone component 
+		zone = GetComponent<ZoneDetect>();
 
 
 	}
@@ -29,7 +33,7 @@ public class ExplodeZom : MonoBehaviour {
 	void FixedUpdate()
 	{
 		// Check if 'a' is pressed
-		if (Input.GetKeyDown ("a")) 
+		if (zone.isReady == true) 
 		{
 			// Set parent to null
 			gameObject.transform.parent = null;
@@ -38,6 +42,7 @@ public class ExplodeZom : MonoBehaviour {
 			// Add explode force
 			rb.AddExplosionForce (power, explosionPos, radius, 0.0f, ForceMode.Impulse);
 		}
-			
+
+
 	}
 }
