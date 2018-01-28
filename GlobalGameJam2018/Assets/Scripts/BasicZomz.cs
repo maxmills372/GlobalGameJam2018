@@ -14,10 +14,6 @@ public class BasicZomz : MonoBehaviour
 		YELLOW
 	}
 
-	public Material mat;
-
-	public Animator anim;
-
 	// The colour that the zom is
 	public Zom_Colour zom_colour;	
 	Color color;
@@ -46,10 +42,6 @@ public class BasicZomz : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		//anim.Play ("Run");
-
-		//this_renderer = GetComponent<Renderer> ();
-
 		GameObject temp = GameObject.Find ("Player");
 		player_location = temp;
 
@@ -83,7 +75,7 @@ public class BasicZomz : MonoBehaviour
 		}
 
 		// Find the renderer
-		//Renderer this_renderer = gameObject.GetComponent<Renderer>();
+		Renderer this_renderer = gameObject.GetComponent<Renderer>();
 
 		// Change colour to object colour
 		switch (zom_colour)
@@ -104,6 +96,7 @@ public class BasicZomz : MonoBehaviour
 			color = Color.black;
 			break;
 		}
+<<<<<<< HEAD
 
 		print (color);
 
@@ -111,6 +104,9 @@ public class BasicZomz : MonoBehaviour
 
 		mat.color = color;
 		mat.SetColor("_EmmisionColor", color);
+=======
+		this_renderer.material.color = color;
+>>>>>>> parent of 38f0461... Merge branch 'Development' of https://github.com/maxmills372/GlobalGameJam2018 into Development
 		GetComponent<Light> ().color = color;
 
 		hive_mind = GameObject.Find("ZombHive");
@@ -204,8 +200,6 @@ public class BasicZomz : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-
-		//anim.Play ("Run");
 		CrowdControl ();
 
 		//Debug.Log (hive_centre);
