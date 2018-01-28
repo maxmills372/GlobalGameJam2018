@@ -96,7 +96,17 @@ public class BasicZomz : MonoBehaviour
 			color = Color.black;
 			break;
 		}
+<<<<<<< HEAD
+
+		print (color);
+
+		mat = GetComponent<Material>();
+
+		mat.color = color;
+		mat.SetColor("_EmmisionColor", color);
+=======
 		this_renderer.material.color = color;
+>>>>>>> parent of 38f0461... Merge branch 'Development' of https://github.com/maxmills372/GlobalGameJam2018 into Development
 		GetComponent<Light> ().color = color;
 
 		hive_mind = GameObject.Find("ZombHive");
