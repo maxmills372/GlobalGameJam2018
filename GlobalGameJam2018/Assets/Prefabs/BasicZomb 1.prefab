@@ -246,8 +246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8f726571c69a343a959a9d1f60a85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mat: {fileID: 0}
-  anim: {fileID: 0}
   zom_colour: 0
   player_location: {fileID: 0}
   id: 0

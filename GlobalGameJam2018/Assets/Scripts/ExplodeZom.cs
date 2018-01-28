@@ -21,11 +21,10 @@ public class ExplodeZom : MonoBehaviour {
 		// Set rigidbody to be kinimatic
 		rb.isKinematic = true;
 
-		// Set explode pos to redZom pos
-		explosionPos = redZom.transform.position;
+	
 	
 		// Get zone component 
-		zone = GetComponent<ZoneDetect>();
+		zone = GameObject.Find("Zone").GetComponent<ZoneDetect>();
 
 
 	}
@@ -37,6 +36,8 @@ public class ExplodeZom : MonoBehaviour {
 		{
 			// Set parent to null
 			gameObject.transform.parent = null;
+			// Set explode pos to redZom pos
+			explosionPos = redZom.transform.position;
 			// Set kinimatic to false
 			rb.isKinematic = false;
 			// Add explode force

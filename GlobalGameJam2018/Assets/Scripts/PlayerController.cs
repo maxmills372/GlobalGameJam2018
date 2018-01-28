@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 	void Start () 
 	{
 		character_controller = GetComponent<CharacterController> ();
+
+		the_hive = GameObject.Find("ZombHive");
 	}
 
 

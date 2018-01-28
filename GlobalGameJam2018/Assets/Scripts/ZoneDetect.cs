@@ -35,7 +35,7 @@ public class ZoneDetect : MonoBehaviour {
 		if(other.gameObject.tag == "Red")
 		{
 			redNum ++;
-			explode.redZom = other.transform.position;
+			explode.redZom = other.gameObject;
 		}
 	}
 
