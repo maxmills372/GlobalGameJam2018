@@ -97,6 +97,16 @@ public class HiveMind : MonoBehaviour
 		Calculate_Maximum();
 	}
 
+	// Make all zomz follow
+	public void All_Follow()
+	{
+		is_following = true;
+		foreach (GameObject obj in the_hive) 
+		{
+			obj.SendMessage ("ToggleFollow", is_following);
+		}
+	}
+
 	// calculates the average poaition of the hive, i.e the centre, and then updates each zomb with said position
 	void UpdateHiveCentre()
 	{		
@@ -122,9 +132,9 @@ public class HiveMind : MonoBehaviour
 	void Update () 
 	{
 		// if the user presses P tells the zombz in the hive to toggle their following state
-		if (Input.GetKeyDown (KeyCode.P)) 
+		if (Input.GetButtonDown ("Seperate")) 
 		{
-			is_following = !is_following;
+			is_following = false;
 			foreach (GameObject obj in the_hive) 
 			{
 				obj.SendMessage ("ToggleFollow", is_following);

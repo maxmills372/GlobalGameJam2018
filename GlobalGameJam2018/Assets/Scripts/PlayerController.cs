@@ -27,20 +27,16 @@ public class PlayerController : MonoBehaviour
 	}
 
 
-	void OnTriggerEnter(Collider col)
+	void RingOnTriggerEnter(Collider col)
 	{
-		// Zomb collection
-		if(col.tag == "Zombz")
+		if (the_hive.GetComponent<HiveMind>().the_hive.Contains(col.gameObject)) 
 		{
-			if (Input.GetKey (KeyCode.F)) 
-			{
-				the_hive.GetComponent<HiveMind> ().RemoveZomb (col.gameObject);
-			} 
-			else 
-			{
-				col.gameObject.SendMessage ("UpdatePlayer", this.gameObject);
-				the_hive.GetComponent<HiveMind> ().AddZomb (col.gameObject);
-			}
+			the_hive.GetComponent<HiveMind> ().All_Follow();
+		}
+		else 
+		{
+			col.gameObject.SendMessage ("UpdatePlayer", this.gameObject);
+			the_hive.GetComponent<HiveMind> ().AddZomb (col.gameObject);
 		}
 	}
 

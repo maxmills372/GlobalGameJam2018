@@ -21,7 +21,7 @@ public class RingSpread : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.F))
+		if (Input.GetButton("Pulse"))
         {
             gameObject.transform.localScale = default_scale;
 
@@ -65,4 +65,14 @@ public class RingSpread : MonoBehaviour
 
 		gameObject.transform.localScale = default_scale;
     }
+
+	void OnTriggerEnter (Collider col)
+	{
+		// Zomb collection
+		if(col.tag == "Zombz")
+		{
+			//Trigger on player;
+			SendMessageUpwards("RingOnTriggerEnter", col);
+		}
+	}
 }
