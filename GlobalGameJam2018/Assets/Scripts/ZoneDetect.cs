@@ -8,17 +8,19 @@ public class ZoneDetect : MonoBehaviour {
 	public int minNum;
 
 	public bool isReady;
-
-	public ExplodeZom explode;
+	public bool exploded; 
+	public ExplodeZom[] explode_wall;
+	public List<ExplodeZom> zom_explode;
 
 	// Use this for initialization
 	void Start () 
 	{
 		redNum = 0;
-		minNum = 10;
+	//	minNum = 10;
 		isReady = false;
+		exploded = false;
 
-		explode = GetComponent<ExplodeZom>();
+		explode_wall = gameObject.transform.parent.GetComponentsInChildren<ExplodeZom>();
 	}
 
 	// Update is called once per frame
@@ -32,18 +34,35 @@ public class ZoneDetect : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.tag == "Red")
+		if (!exploded)
 		{
-			redNum ++;
-			explode.redZom = other.gameObject;
+			if (other.gameObject.GetComponent<BasicZomz>())
+			{
+				if (other.gameObject.GetComponent<BasicZomz>().zom_colour == BasicZomz.Zom_Colour.RED)
+				{
+					redNum ++;
+					zom_explode.Add(other.gameObject.GetComponent<ExplodeZom>());
+					foreach (ExplodeZom this_explode in explode_wall)
+					{
+						this_explode.redZom = other.gameObject;
+					}
+				}
+			}
 		}
 	}
 
 	void OnTriggerExit(Collider other)
 	{
-		if(other.gameObject.tag == "Red")
+		if (other.gameObject.GetComponent<BasicZomz>())
 		{
-			redNum --;
+			if (other.gameObject.GetComponent<BasicZomz>().zom_colour == BasicZomz.Zom_Colour.RED)
+			{
+				redNum --;
+				if (zom_explode.Contains(other.gameObject.GetComponent<ExplodeZom>()))
+				{
+					zom_explode.Remove(other.gameObject.GetComponent<ExplodeZom>());
+				}
+			}
 		}
 	}
 }

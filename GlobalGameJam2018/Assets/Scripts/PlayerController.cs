@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
 	public Vector3 move_offset = Vector3.zero;
 
+	public GameObject current_zone;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -90,23 +92,38 @@ public class PlayerController : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Send_Red"))
 		{
-			print("Red was sent");
+			if (current_zone)
+			{
+				print("Red was sent");
+			}
 		}
 		if (Input.GetButtonDown("Send_Blue"))
 		{
-			print("Blue was sent");
+			if (current_zone)
+			{
+				print("Blue was sent");
+			}
 		}
 		if (Input.GetButtonDown("Send_Yellow"))
 		{
-			print("Yellow was sent");
+			if (current_zone)
+			{
+				print("Yellow was sent");
+			}
 		}
 		if (Input.GetButtonDown("Pulse"))
 		{
-			print("Pulse");
+			if (current_zone)
+			{
+				print("Pulse");
+			}
 		}
 		if (Input.GetButtonDown("Seperate"))
 		{
-			print("Z0MZ seperated");
+			if (current_zone)
+			{
+				print("Z0MZ seperated");
+			}
 		}
 	}
 
@@ -123,5 +140,21 @@ public class PlayerController : MonoBehaviour
 			move_offset = move_offset - nm;
 		}
 
+	}
+
+	void OnTriggerEnter(Collider col)
+	{
+		if (col.tag == "zone")
+		{
+			current_zone = col.gameObject;
+		}
+	}
+
+	void OnTriggerExit(Collider col)
+	{
+		if (col.gameObject == current_zone)
+		{
+			current_zone = null;
+		}
 	}
 }
