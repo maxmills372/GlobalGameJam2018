@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class HiveMind : MonoBehaviour 
 {
-
 	public List<GameObject> the_hive = new List<GameObject>();
 
 	public GameObject start;
-
 	public GameObject player;
-
 	public GameObject hive_actual;
+	public GameObject hive_reject;
 
 	// The different colours
 	public enum Zom_Colour
@@ -45,7 +43,8 @@ public class HiveMind : MonoBehaviour
 		for (int i = 0; i < start_count; i++) 
 		{
 			Vector3 pos = start.transform.position;
-			if (i < 50) {
+			if (i < 50) 
+			{
 				pos.x += i * 3.0f;
 			} 
 			else 
@@ -60,7 +59,7 @@ public class HiveMind : MonoBehaviour
 			temp_sript.id = i;
 
 			temp_sript.comfort_zone = comfort_zone;
-
+			temp_zomb.transform.SetParent (hive_reject.transform);
 
 		}
 
@@ -86,13 +85,22 @@ public class HiveMind : MonoBehaviour
 		Calculate_Maximum();
 	}
 
-	public void RemoveZomb(GameObject zomb)
+	public void RemoveZomb(GameObject zomb, bool dead)
 	{
 		if (the_hive.Contains (zomb) == true) 
-		{
-			zomb.SendMessage ("Release");
+		{			
 			the_hive.Remove (zomb);
 			Hive_Count();
+			if (dead) 
+			{
+				Destroy (zomb);
+				Debug.Log ("death has happened");
+			} 
+			else 
+			{
+				zomb.SendMessage ("Release");
+				zomb.transform.SetParent (hive_reject.transform);
+			}
 		}
 
 		// Recalculate the maximum of the Z0MZ
@@ -115,6 +123,8 @@ public class HiveMind : MonoBehaviour
 		if (the_hive.Count > 0)
 		{
 			hive_centre = Vector3.zero;
+
+			Debug.Log (the_hive.Count);
 
 			foreach (GameObject obj in the_hive) 
 			{

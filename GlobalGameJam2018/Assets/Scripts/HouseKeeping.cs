@@ -29,7 +29,7 @@ public class HouseKeeping : MonoBehaviour
 	{
 		foreach (GameObject obj in zombz_in_area) 
 		{
-			the_hive.GetComponent<HiveMind> ().RemoveZomb (obj);
+			the_hive.GetComponent<HiveMind> ().RemoveZomb (obj, false);
 		}
 	}
 

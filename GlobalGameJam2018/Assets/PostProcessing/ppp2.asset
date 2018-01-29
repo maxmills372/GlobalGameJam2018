@@ -42,7 +42,7 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 0.33
+      intensity: 4
       radius: 0.16
       sampleCount: 16
       downsampling: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
       screenEdgeMask:
         intensity: 0.03
   depthOfField:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       focusDistance: 3.37
       aperture: 10.5
@@ -79,7 +79,7 @@ MonoBehaviour:
   motionBlur:
     m_Enabled: 0
     m_Settings:
-      shutterAngle: 108
+      shutterAngle: 239
       sampleCount: 32
       frameBlending: 1
   eyeAdaptation:
@@ -122,12 +122,12 @@ MonoBehaviour:
       basic:
         postExposure: 0.44
         temperature: 0
-        tint: 0
+        tint: 8
         hueShift: 0
-        saturation: 1.1703162
+        saturation: 1.02
         contrast: 1.38
       channelMixer:
-        red: {x: 1, y: 0, z: 0}
+        red: {x: 0.69, y: -0.18, z: 0.28}
         green: {x: 0, y: 1, z: 0}
         blue: {x: 0, y: 0, z: 1}
         currentEditingChannel: 0
@@ -288,10 +288,10 @@ MonoBehaviour:
   grain:
     m_Enabled: 0
     m_Settings:
-      colored: 1
-      intensity: 0.5
-      size: 1
-      luminanceContribution: 0.8
+      colored: 0
+      intensity: 0.2
+      size: 0.67
+      luminanceContribution: 0.17
   vignette:
     m_Enabled: 1
     m_Settings:

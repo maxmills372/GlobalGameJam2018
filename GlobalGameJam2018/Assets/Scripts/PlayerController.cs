@@ -20,10 +20,14 @@ public class PlayerController : MonoBehaviour
 
 	public Vector3 move_offset = Vector3.zero;
 
+	public Animator anim;
+
 	// Use this for initialization
 	void Start () 
 	{
 		//character_controller = GetComponent<CharacterController> ();
+
+		anim = GetComponent<Animator> ();
 
 		the_hive = GameObject.Find("ZombHive");
 	}
@@ -69,17 +73,28 @@ public class PlayerController : MonoBehaviour
 		x_speed = Input.GetAxis ("Horizontal") * movement_speed;
 		z_speed = Input.GetAxis ("Vertical") * movement_speed;
 
-		Vector3 speed = (new Vector3 (x_speed, 0.0f, z_speed));
+		if (x_speed != 0.0f || z_speed != 0.0f) 
+		{
+			anim.SetBool ("Walking", true);
 
-		speed = camera_parent.transform.rotation * speed;
-		speed += move_offset;
+			Vector3 speed = (new Vector3 (x_speed, 0.0f, z_speed));
+
+			speed = camera_parent.transform.rotation * speed;
+			speed += move_offset;
+
+			gameObject.transform.LookAt(gameObject.transform.position + new Vector3(speed.x, 0.0f, speed.z));
 
 //		if (character_controller.isGrounded != true) 
 //		{
 //			speed.y = -10.0f;
 //		}
 
-		gameObject.transform.position += (speed * Time.deltaTime);
+			gameObject.transform.parent.position += (speed * Time.deltaTime);
+		} 
+		else 
+		{
+			anim.SetBool ("Walking", false);
+		}
 	}
 
 	void Button_Input()

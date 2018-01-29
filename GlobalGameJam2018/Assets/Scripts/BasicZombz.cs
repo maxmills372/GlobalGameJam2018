@@ -16,6 +16,8 @@ public class BasicZombz : MonoBehaviour
 
 	public Material mat;
 
+
+
 	public Animator anim;
 
 	// The colour that the zom is
@@ -42,11 +44,9 @@ public class BasicZombz : MonoBehaviour
 
 	public float comfort_zone;
 
-
 	// Use this for initialization
 	void Start () 
 	{
-		//anim.Play ("Run");
 
 		//this_renderer = GetComponent<Renderer> ();
 
@@ -110,9 +110,10 @@ public class BasicZombz : MonoBehaviour
 		mat = GetComponent<Renderer> ().material;
 		mat.color = color;
 		mat.SetColor("_EmmisionColor", color);
-		GetComponent<Light> ().color = color;
+		GetComponentInChildren<Light> ().color = color;
 
 		hive_mind = GameObject.Find("ZombHive");
+		anim = GetComponent<Animator>();
 	}
 
 	// Adds the nearby zomb to the nearby list
@@ -148,6 +149,11 @@ public class BasicZombz : MonoBehaviour
 		}
 	}
 		
+	public void DeathHasOccured()
+	{
+		Release (true);
+	}
+
 	// Updates the average position of the hive, i.e. the centre of the hive
 	void UpdateHiveCentre(Vector3 vel)
 	{
@@ -183,9 +189,10 @@ public class BasicZombz : MonoBehaviour
 		//Debug.Log ("fuck off");
 	}
 
-	void Release()
+	void Release(bool dead)
 	{
 		is_collected = false;
+		hive_mind.GetComponent<HiveMind> ().RemoveZomb (gameObject, dead);
 	}
 
 	// pushes away nearby zombz, and gets pushed by the player
@@ -206,6 +213,10 @@ public class BasicZombz : MonoBehaviour
 	void Update () 
 	{
 
+		anim.SetFloat("Speed", gameObject.GetComponent<Rigidbody>().velocity.magnitude);
+
+		Debug.Log(gameObject.GetComponent<Rigidbody>().velocity.magnitude);
+
 		//anim.Play ("Run");
 		CrowdControl ();
 
@@ -219,12 +230,12 @@ public class BasicZombz : MonoBehaviour
 				agent.SetDestination (player_location.transform.position);
 				move = agent.desiredVelocity;
 
+
+
 				transform.position = transform.position + move * Time.deltaTime * (Vector3.Distance(transform.position, player_location.transform.position) / 10.0f);
 
 				transform.LookAt (player_location.transform.position);// GameObject.Find ("Player").transform);
 
-
-				Debug.Log (player_location.transform.position);
 			} 
 			else 
 			{			
