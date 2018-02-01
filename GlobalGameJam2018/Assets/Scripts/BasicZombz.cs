@@ -14,8 +14,8 @@ public class BasicZombz : MonoBehaviour
 		YELLOW
 	}
 
-	public Material mat;
-
+	Material mat;
+	public GameObject body;
 
 
 	public Animator anim;
@@ -107,7 +107,7 @@ public class BasicZombz : MonoBehaviour
 			break;
 		}
 
-		mat = GetComponent<Renderer> ().material;
+		mat = body.GetComponent<Renderer> ().materials [2];
 		mat.color = color;
 		mat.SetColor("_EmmisionColor", color);
 		GetComponentInChildren<Light> ().color = color;
@@ -215,7 +215,7 @@ public class BasicZombz : MonoBehaviour
 
 		anim.SetFloat("Speed", gameObject.GetComponent<Rigidbody>().velocity.magnitude);
 
-		Debug.Log(gameObject.GetComponent<Rigidbody>().velocity.magnitude);
+
 
 		//anim.Play ("Run");
 		CrowdControl ();
