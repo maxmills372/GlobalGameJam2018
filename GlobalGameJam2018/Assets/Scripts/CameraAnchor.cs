@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChargeZomz : BasicZomz 
+public class CameraAnchor : MonoBehaviour 
 {
+
+	public Transform player_transform;
+
+	public float speed;
+
+	Vector3 movement;
 
 	// Use this for initialization
 	void Start () 
@@ -14,6 +20,6 @@ public class ChargeZomz : BasicZomz
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		transform.position = player_transform.position;
 	}
 }

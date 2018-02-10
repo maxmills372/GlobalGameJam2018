@@ -8,14 +8,14 @@ AnimatorController:
   m_Name: Minion
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Speed
-    m_Type: 1
+  - m_Name: Bridge
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Bridge
-    m_Type: 4
+  - m_Name: Distance
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -41,8 +41,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: Speed
-    m_EventTreshold: 0.1
+    m_ConditionEvent: Distance
+    m_EventTreshold: 5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102925374758703716}
   m_Solo: 0
@@ -65,8 +65,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: Speed
-    m_EventTreshold: 0.1
+    m_ConditionEvent: Distance
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102114008072622838}
   m_Solo: 0
@@ -89,8 +89,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: Speed
-    m_EventTreshold: 0.001
+    m_ConditionEvent: Distance
+    m_EventTreshold: 5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102377589084467738}
   m_Solo: 0
@@ -137,8 +137,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: Speed
-    m_EventTreshold: 0.001
+    m_ConditionEvent: Distance
+    m_EventTreshold: 2.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102114008072622838}
   m_Solo: 0
@@ -185,8 +185,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: Speed
-    m_EventTreshold: 1
+    m_ConditionEvent: Distance
+    m_EventTreshold: 5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102377589084467738}
   m_Solo: 0
@@ -209,8 +209,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: Speed
-    m_EventTreshold: 0
+    m_ConditionEvent: Distance
+    m_EventTreshold: 2.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102925374758703716}
   m_Solo: 0

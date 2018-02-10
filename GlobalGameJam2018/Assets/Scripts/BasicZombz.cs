@@ -183,10 +183,8 @@ public class BasicZombz : MonoBehaviour
 	// updates what the zomb considers the player
 	void UpdatePlayer(GameObject player)
 	{
-		//player_location = player;
+		player_location = player;
 		is_collected = true;
-
-		//Debug.Log ("fuck off");
 	}
 
 	void Release(bool dead)
@@ -213,7 +211,7 @@ public class BasicZombz : MonoBehaviour
 	void Update () 
 	{
 
-		anim.SetFloat("Speed", gameObject.GetComponent<Rigidbody>().velocity.magnitude);
+		anim.SetFloat("Distance", Vector3.Distance(transform.position, player_location.transform.position));
 
 
 

@@ -124,8 +124,6 @@ public class HiveMind : MonoBehaviour
 		{
 			hive_centre = Vector3.zero;
 
-			Debug.Log (the_hive.Count);
-
 			foreach (GameObject obj in the_hive) 
 			{
 				hive_centre += obj.transform.position;//localPosition;

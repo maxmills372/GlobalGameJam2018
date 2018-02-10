@@ -89,7 +89,8 @@ public class PlayerController : MonoBehaviour
 //			speed.y = -10.0f;
 //		}
 
-			gameObject.transform.parent.position += (speed * Time.deltaTime);
+			gameObject.transform.parent.Translate (speed * Time.deltaTime);
+			//gameObject.transform.parent.position += (speed * Time.deltaTime);
 		} 
 		else 
 		{

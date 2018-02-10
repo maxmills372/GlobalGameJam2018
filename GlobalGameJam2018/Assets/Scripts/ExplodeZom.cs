@@ -25,7 +25,7 @@ public class ExplodeZom : MonoBehaviour {
 	void FixedUpdate()
 	{
 		// Check if 'a' is pressed
-		if (Input.GetKeyDown("a")) 
+		if (Input.GetKeyDown("l")) 
 		{
             // Set explode pos to redZom pos
             explosionPos = redZom[6].transform.position;
