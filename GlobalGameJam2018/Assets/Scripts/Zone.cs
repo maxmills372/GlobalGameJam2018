@@ -35,21 +35,21 @@ public class Zone : MonoBehaviour {
 			switch (this_zone_colour)
 			{
 			case zone_colour.RED:
-				if (Input.GetButton("Send_Red"))
+				if (Input.GetButtonDown("Send_Red"))
 				{
 					// Call send red code
 					print ("Send red from red zone");
 				}
 				break;
 			case zone_colour.YELLOW:
-				if (Input.GetButton("Send_Yellow"))
+				if (Input.GetButtonDown("Send_Yellow"))
 				{
 					// Call send yellow code
 					print ("Send yellow from yellow zone");
 				}
 				break;
 			case zone_colour.BLUE:
-				if (Input.GetButton("Send_Blue"))
+				if (Input.GetButtonDown("Send_Blue"))
 				{
 					// Call send blue code
 					print ("Send blue from blue zone");
