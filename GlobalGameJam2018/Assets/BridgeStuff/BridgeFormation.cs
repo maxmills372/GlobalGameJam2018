@@ -132,7 +132,8 @@ public class BridgeFormation : MonoBehaviour {
                 stop = true;
 
                 bridge[bridge_amount - 1].tag = "Player"; // YOU CAN CHANGE THIS
-                bridge[bridge_amount - 1].GetComponent<Rigidbody>().AddForce(force);
+				bridge[bridge_amount - 1].GetComponent<Rigidbody>().velocity = new Vector3(0.0f,0.0f,0.0f);
+				bridge[bridge_amount - 1].GetComponent<Rigidbody>().AddForce(force);
             }
 
             
