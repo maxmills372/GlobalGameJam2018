@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HiveMind : MonoBehaviour 
 {
+	
 	public List<GameObject> the_hive = new List<GameObject>();
 
 	public GameObject start;

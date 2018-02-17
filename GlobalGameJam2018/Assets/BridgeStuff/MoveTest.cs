@@ -9,7 +9,7 @@ public class MoveTest : MonoBehaviour {
 	Vector3 move, connected_anchor; 
 	public bool arrived, joint;
 
-    public Rigidbody end_cube_rigidbody;
+   // public Rigidbody end_cube_rigidbody;
 
 	// Use this for initialization
 	void Start ()

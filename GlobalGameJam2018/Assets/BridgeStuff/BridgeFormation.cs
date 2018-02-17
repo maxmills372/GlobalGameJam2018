@@ -7,7 +7,9 @@ public class BridgeFormation : MonoBehaviour {
 
     //IM ON IT
 
-	public GameObject[] bridge;
+	//public GameObject[] bridge;
+	public List<GameObject> bridge = new List<GameObject>();
+
 	public Transform bridge_start_pos;
 	public Rigidbody bridge_start_body;
     bool form_bridge;
@@ -16,12 +18,20 @@ public class BridgeFormation : MonoBehaviour {
     public int bridge_amount = 10;
     public Vector3 force;
 
+	GameObject hive;
+
 	// Use this for initialization
 	void Start () {
         count = 0;
         stop = false;
+		hive = GameObject.Find("ZombHive");
     }
-	
+
+	public void Form_Bridge()
+	{
+		form_bridge = true;
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -31,6 +41,20 @@ public class BridgeFormation : MonoBehaviour {
 		// if they leave the heard
 		//		remove from bridge list
 
+
+		/*if (hive.GetComponent<HiveMind>().the_hive.Count > 0 && bridge.Count < bridge_amount)
+		{
+			foreach (GameObject obj in hive.GetComponent<HiveMind>().the_hive) 
+			{
+				if (obj.GetComponent<BasicZombz> ().zom_colour == BasicZombz.Zom_Colour.YELLOW) 
+				{
+					if (bridge.Contains (obj) != true) {
+						bridge.Add (obj);
+					}
+				}
+			}
+		}*/
+
 		if(Input.GetKeyDown(KeyCode.B))
 		{
 			form_bridge = true;
@@ -38,7 +62,7 @@ public class BridgeFormation : MonoBehaviour {
 
         if (form_bridge)
         {
-
+			//to set up the beggining of the bridge
             if (!bridge[0].GetComponent<MoveTest>().arrived)
             {
                 bridge[0].GetComponent<NavMeshAgent>().SetDestination(bridge_start_pos.position);
@@ -49,16 +73,11 @@ public class BridgeFormation : MonoBehaviour {
                 if (!stop)
                 {
                     bridge[0].transform.position = bridge_start_pos.position;
-                }
-                /*if(!bridge[0].GetComponent<MoveTest>().joint)
-				{
-                    bridge[0].GetComponent<MoveTest>().CreateJoint(bridge_start_body);//, 0.4963608f, 0.4766202f, 0.36f);
-					bridge[0].GetComponent<NavMeshAgent>().enabled = false;
-					bridge[0].GetComponent<MoveTest>().joint = true;
-                }*/
+                }               
             }
 
-            for (int i = 1; i < bridge.Length; i++)
+			//to set up the rest of the bridge
+			for (int i = 1; i < bridge.Count; i++)
             {
                 if (!bridge[i].GetComponent<MoveTest>().arrived)
                 {
@@ -75,8 +94,9 @@ public class BridgeFormation : MonoBehaviour {
                 }
             }
             
+			//for counting if all the minions have arrived
             count = 0;
-            for (int i = 0; i < bridge.Length; i++)
+			for (int i = 0; i < bridge.Count; i++)
             {
                 if (bridge[i].GetComponent<MoveTest>().arrived)
                 {
@@ -86,6 +106,7 @@ public class BridgeFormation : MonoBehaviour {
             }
             Debug.Log(count);
             
+			// creates joints once all are there
             if (count == bridge_amount)
             {
                 if (!bridge[0].GetComponent<MoveTest>().joint)
@@ -98,7 +119,7 @@ public class BridgeFormation : MonoBehaviour {
                     
                 }
 
-                for (int i = 1; i < bridge.Length; i++)
+				for (int i = 1; i < bridge.Count; i++)
                 {
                     if (!bridge[i].GetComponent<MoveTest>().joint)
                     {
