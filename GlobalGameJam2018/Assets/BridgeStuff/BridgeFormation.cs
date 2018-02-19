@@ -13,7 +13,8 @@ public class BridgeFormation : MonoBehaviour {
 	public Transform bridge_start_pos;
 	public Rigidbody bridge_start_body;
     bool form_bridge;
-    public bool stop;
+	public bool stop;
+	public bool done;
     int count;
     public int bridge_amount = 10;
     public Vector3 force;
@@ -24,6 +25,7 @@ public class BridgeFormation : MonoBehaviour {
 	void Start () {
         count = 0;
         stop = false;
+		done = false;
 		hive = GameObject.Find("ZombHive");
     }
 
@@ -93,6 +95,7 @@ public class BridgeFormation : MonoBehaviour {
 
                 }
             }
+
             
 			//for counting if all the minions have arrived
             count = 0;
@@ -130,10 +133,13 @@ public class BridgeFormation : MonoBehaviour {
                 }
 
                 stop = true;
+				if (!done) {
+					bridge [bridge_amount - 1].tag = "Player"; // YOU CAN CHANGE THIS
+					bridge [bridge_amount - 1].transform.forward = Vector3.forward;
+					bridge [bridge_amount - 1].GetComponent<Rigidbody> ().AddForce (force);
+					done = true;
+				}
 
-                bridge[bridge_amount - 1].tag = "Player"; // YOU CAN CHANGE THIS
-				bridge[bridge_amount - 1].GetComponent<Rigidbody>().velocity = new Vector3(0.0f,0.0f,0.0f);
-				bridge[bridge_amount - 1].GetComponent<Rigidbody>().AddForce(force);
             }
 
             

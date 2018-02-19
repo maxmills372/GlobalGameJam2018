@@ -41,6 +41,16 @@ public class MoveTest : MonoBehaviour {
                 
        
 	}
+	void OnTriggerStay(Collider col)
+	{
+		if(col.tag == "Finish")
+		{
+			arrived = true;
+			Debug.Log("jdsb");
+		}
+
+
+	}
 
 	/*public void CreateJoint(Rigidbody body,float posX, float posY, float posZ)
 	{
