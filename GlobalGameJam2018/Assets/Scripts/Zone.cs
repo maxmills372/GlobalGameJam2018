@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zone : MonoBehaviour {
+public class Zone : MonoBehaviour 
+{
 
 	public enum zone_colour
 	{
@@ -22,39 +23,36 @@ public class Zone : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		
+			
 	}
-
+		
 	void OnTriggerStay (Collider other)
 	{
 		// If player is in zone
-		if (other.tag == "Player")
+		if (other.tag == "Player" && Input.GetButtonDown("Send_Zombz"))
 		{
 			// Check the zones colour
 			// Then for the correct input
 			switch (this_zone_colour)
 			{
 			case zone_colour.RED:
-				if (Input.GetButtonDown("Send_Red"))
-				{
-					// Call send red code
-					print ("Send red from red zone");
-				}
+
+				// Call send red code
+				print ("Send red from red zone");
 				break;
+
 			case zone_colour.YELLOW:
-				if (Input.GetButtonDown("Send_Yellow"))
-				{
-					// Call send yellow code
-					print ("Send yellow from yellow zone");
-				}
+				
+				// Call send yellow code
+				print ("Send yellow from yellow zone");
 				break;
+
 			case zone_colour.BLUE:
-				if (Input.GetButtonDown("Send_Blue"))
-				{
-					// Call send blue code
-					print ("Send blue from blue zone");
-				}
+				
+				// Call send blue code
+				print ("Send blue from blue zone");
 				break;
+
 			default:
 				print ("There is an error with one of the zones");
 				break;
