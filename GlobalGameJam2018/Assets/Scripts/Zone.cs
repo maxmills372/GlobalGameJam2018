@@ -5,6 +5,8 @@ using UnityEngine;
 public class Zone : MonoBehaviour 
 {
 
+	GameObject hive_mind;
+
 	public enum zone_colour
 	{
 		RED,
@@ -17,7 +19,7 @@ public class Zone : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		
+		hive_mind = GameObject.Find("ZombHive");
 	}
 	
 	// Update is called once per frame
@@ -36,26 +38,27 @@ public class Zone : MonoBehaviour
 			switch (this_zone_colour)
 			{
 			case zone_colour.RED:
-
-				// Call send red code
+					// Call send red code
 				print ("Send red from red zone");
-				break;
 
-			case zone_colour.YELLOW:
-				
-				// Call send yellow code
-				print ("Send yellow from yellow zone");
-				break;
 
-			case zone_colour.BLUE:
-				
-				// Call send blue code
-				print ("Send blue from blue zone");
-				break;
+					
+					break;
 
-			default:
-				print ("There is an error with one of the zones");
-				break;
+				case zone_colour.YELLOW:					
+					// Call send yellow code
+					print ("Send yellow from yellow zone");
+					break;
+
+				case zone_colour.BLUE:				
+					// Call send blue code
+					print ("Send blue from blue zone");
+				hive_mind.GetComponent<HiveMind> ().BlueZombEffect (this.gameObject, 5);
+					break;
+
+				default:
+					print ("There is an error with one of the zones");
+					break;
 			}
 		}
 	}

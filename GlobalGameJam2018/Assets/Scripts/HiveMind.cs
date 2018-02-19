@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HiveMind : MonoBehaviour 
 {
-	
 	public List<GameObject> the_hive = new List<GameObject>();
 
 	public GameObject start;
@@ -69,6 +68,28 @@ public class HiveMind : MonoBehaviour
 		maximum = new int[4] {100,0,0,0};
 
 		player = GameObject.Find("Player");
+	}
+
+	public void BlueZombEffect(GameObject target, int num)
+	{
+		int temp_counter = 0;
+		Debug.Log ("Blue zomb effect");
+
+		if (counter [(int)Zom_Colour.BLUE] >= num) 
+		{
+			foreach (GameObject obj in the_hive) 
+			{
+				if (temp_counter < num && (int)obj.GetComponent<BasicZombz> ().zom_colour == (int)Zom_Colour.BLUE) 
+				{
+					obj.GetComponent<BasicZombz> ().SetTarget (target);
+
+					temp_counter++;
+
+					Debug.Log (temp_counter);
+				} 
+
+			}
+		}
 	}
 
 	// adds a zomb to the hive, parents it to the correct gameobject, and tells it if the hive is currently following the player
@@ -198,7 +219,7 @@ public class HiveMind : MonoBehaviour
 			if (the_hive.Contains (target_zom))
 			{
 				// Find the renderer
-				Renderer this_renderer = target_zom.GetComponent<Renderer>();
+				//Renderer this_renderer = target_zom.GetComponent<Renderer>();
 
 				// Create colour variable
 				Color color;
@@ -219,8 +240,10 @@ public class HiveMind : MonoBehaviour
 					color = Color.black;
 					break;
 				}
-				this_renderer.material.color = color;
-				target_zom.GetComponent<Light> ().color = color;
+				//this_renderer.materials[2].color = color;
+
+				target_zom.GetComponent<BasicZombz> ().ChangeColor (color);
+				//target_zom.GetComponent<Light> ().color = color;
 
 				// Remove a grey and add one of the new colour
 				counter[(int)Zom_Colour.GREY]--;

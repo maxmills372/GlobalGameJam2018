@@ -100,18 +100,7 @@ public class PlayerController : MonoBehaviour
 
 	void Button_Input()
 	{
-		if (Input.GetButtonDown("Send_Red"))
-		{
-			print("Red was sent");
-		}
-		if (Input.GetButtonDown("Send_Blue"))
-		{
-			print("Blue was sent");
-		}
-		if (Input.GetButtonDown("Send_Yellow"))
-		{
-			print("Yellow was sent");
-		}
+		
 		if (Input.GetButtonDown("Pulse"))
 		{
 			print("Pulse");

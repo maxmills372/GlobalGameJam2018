@@ -44,10 +44,12 @@ public class BasicZombz : MonoBehaviour
 
 	public float comfort_zone;
 
+	public bool activated = false;
+
 	// Use this for initialization
 	void Start () 
 	{
-
+		player_location = gameObject;
 		//this_renderer = GetComponent<Renderer> ();
 
 		GameObject temp = GameObject.Find ("Player");
@@ -114,6 +116,11 @@ public class BasicZombz : MonoBehaviour
 
 		hive_mind = GameObject.Find("ZombHive");
 		anim = GetComponent<Animator>();
+	}
+
+	public void ChangeColor(Color color)
+	{
+		body.GetComponent<Renderer> ().materials [2].color = color;
 	}
 
 	// Adds the nearby zomb to the nearby list
@@ -183,8 +190,20 @@ public class BasicZombz : MonoBehaviour
 	// updates what the zomb considers the player
 	void UpdatePlayer(GameObject player)
 	{
-		player_location = player;
-		is_collected = true;
+		if (activated == false) 
+		{
+			player_location = player;
+			is_collected = true;
+
+			Debug.Log ("new player");
+		}
+	}
+
+	public void SetTarget(GameObject target)
+	{
+		player_location = target;
+		activated = true;
+		Debug.Log (target.name);
 	}
 
 	void Release(bool dead)
@@ -196,15 +215,21 @@ public class BasicZombz : MonoBehaviour
 	// pushes away nearby zombz, and gets pushed by the player
 	void CrowdControl()
 	{
-		foreach (GameObject obj in nearby_zombz)
+		if (activated == false) 
 		{
-			Vector3 force = obj.transform.position;
+			foreach (GameObject obj in nearby_zombz) 
+			{
+				if(obj != null)
+				{
+					Vector3 force = obj.transform.position;
 
-			// EXPLOSIONS!!!!!!!!!!!!!!
-			GetComponent<Rigidbody> ().AddExplosionForce (100.0f, force, comfort_zone);
+					// EXPLOSIONS!!!!!!!!!!!!!!
+					GetComponent<Rigidbody> ().AddExplosionForce (100.0f, force, comfort_zone);
+				}
+			}
+
+			GetComponent<Rigidbody> ().AddExplosionForce (500.0f, player_location.transform.position, min_distance);
 		}
-
-		GetComponent<Rigidbody> ().AddExplosionForce (500.0f, player_location.transform.position, min_distance);
 	}
 
 	// Update is called once per frame

@@ -6,36 +6,61 @@ public class ElectricalObject : MonoBehaviour
 {
 	List<Collider> collidedObjects = new List<Collider>(); // List to hold the colliding objects
 
-	void OnCollisionEnter(Collision col)
+	public GameObject linked_object;
+
+	bool activated = false;
+	public int target_num;
+	public int current_num;
+
+//	void OnCollisionEnter(Collision col)
+//	{
+//		Debug.Log ("collision");
+//		if (!collidedObjects.Contains (col.collider) && col.gameObject.tag == "Blue") 
+//		{
+//			collidedObjects.Add (col.collider);
+//			Debug.Log ("Blue!");
+//		}
+//	}
+
+//	void OnCollisionStay(Collision col)
+//	{
+//		OnCollisionEnter (col);
+//	}
+//
+//	void OnCollisionExit (Collision col)
+//	{
+//		collidedObjects.Remove (col.collider);
+//	}
+
+	void OnTriggerEnter(Collider col)
 	{
-		Debug.Log ("collision");
-		if (!collidedObjects.Contains (col.collider) && col.gameObject.tag == "Blue") 
+		Debug.Log ("hgurewa");
+		if (col.tag == "Zombz") 
 		{
-			collidedObjects.Add (col.collider);
-			Debug.Log ("Blue!");
+			
+			if (col.GetComponent<BasicZombz> ().activated) 
+			{
+				col.gameObject.SendMessage ("DeathHasOccured");
+				Debug.Log ("death");
+				current_num++;
+				if (target_num >= current_num) 
+				{
+					activated = true;
+				}
+			}
 		}
 	}
 
-	void OnCollisionStay(Collision col)
-	{
-		OnCollisionEnter (col);
-	}
-
-	void OnCollisionExit (Collision col)
-	{
-		collidedObjects.Remove (col.collider);
-	}
-	
 	// Update is called once per frame
 	void Update () 
 	{
 		int numOfColliders = collidedObjects.Count;
-		Debug.Log (numOfColliders);
+		//Debug.Log (numOfColliders);
 
-		if (numOfColliders >= 5)
+		if (activated)
 		{
 			Debug.Log ("buzz");
-		//	do the thing
+			linked_object.SendMessage ("Deactivate");
 		}
 
 		//collidedObjects.Clear ();
