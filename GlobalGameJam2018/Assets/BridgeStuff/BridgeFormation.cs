@@ -34,6 +34,21 @@ public class BridgeFormation : MonoBehaviour {
 		form_bridge = true;
 	}
 
+	IEnumerator StopPhysics()
+	{
+		yield return new WaitForSeconds (1.0f);
+		foreach (GameObject obj in bridge) 
+		{
+			obj.GetComponent<Rigidbody> ().isKinematic = true;
+		}
+		yield return null;
+	}
+
+	void Finished()
+	{
+		StartCoroutine (StopPhysics());
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -90,7 +105,7 @@ public class BridgeFormation : MonoBehaviour {
                 {
                     if (!stop)
                     {
-                        bridge[i].transform.position = new Vector3(bridge_start_pos.position.x, bridge_start_pos.position.y + (i * (2*bridge[0].transform.localScale.x)), bridge_start_pos.position.z);
+                        bridge[i].transform.position = new Vector3(bridge_start_pos.position.x, bridge_start_pos.position.y + (i * (0.63f*bridge[0].transform.localScale.x)), bridge_start_pos.position.z);
                     }
 
                 }
@@ -116,10 +131,7 @@ public class BridgeFormation : MonoBehaviour {
                 {
                     bridge[0].GetComponent<MoveTest>().CreateJoint(bridge_start_body);//, 0.4963608f, 0.4766202f, 0.36f);
                     bridge[0].GetComponent<NavMeshAgent>().enabled = false;
-                    bridge[0].GetComponent<MoveTest>().joint = true;
-
-                   
-                    
+                    bridge[0].GetComponent<MoveTest>().joint = true;       
                 }
 
 				for (int i = 1; i < bridge.Count; i++)
@@ -129,12 +141,14 @@ public class BridgeFormation : MonoBehaviour {
                         bridge[i].GetComponent<MoveTest>().CreateFixedJoint(bridge[i - 1].GetComponent<Rigidbody>());
                         bridge[i].GetComponent<NavMeshAgent>().enabled = false;
                         bridge[i].GetComponent<MoveTest>().joint = true;
+						bridge [i].GetComponent<Rigidbody> ().mass = 1.0f;
                     }
                 }
 
                 stop = true;
-				if (!done) {
-					bridge [bridge_amount - 1].tag = "Player"; // YOU CAN CHANGE THIS
+				if (!done) 
+				{
+					bridge [bridge_amount - 1].tag = "End_Bridge"; // YOU CAN CHANGE THIS
 					bridge [bridge_amount - 1].transform.forward = Vector3.forward;
 					bridge [bridge_amount - 1].GetComponent<Rigidbody> ().AddForce (force);
 					done = true;
