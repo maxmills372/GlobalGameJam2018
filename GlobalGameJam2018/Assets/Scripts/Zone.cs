@@ -41,8 +41,10 @@ public class Zone : MonoBehaviour
 					// Call send red code
 				print ("Send red from red zone");
 
+				hive_mind.GetComponent<HiveMind> ().RedZombEffect (this.gameObject, 3);
 
 					
+				//StartCoroutine (Boom());
 					break;
 
 				case zone_colour.YELLOW:					
@@ -61,5 +63,19 @@ public class Zone : MonoBehaviour
 					break;
 			}
 		}
+	}
+
+	IEnumerator Boom()
+	{
+		yield return new WaitForSeconds (1.0f);
+
+		yield return new WaitForSeconds (1.0f);
+
+		yield return new WaitForSeconds (1.0f);
+
+
+		hive_mind.GetComponent<HiveMind> ().Boom();
+		yield return null;
+
 	}
 }

@@ -92,6 +92,41 @@ public class HiveMind : MonoBehaviour
 		}
 	}
 
+	public void RedZombEffect(GameObject target, int num)
+	{
+		int temp_counter = 0;
+		Debug.Log ("RED zomb effect");
+
+		if (counter [(int)Zom_Colour.RED] >= num) 
+		{
+			foreach (GameObject obj in the_hive) 
+			{
+				if (temp_counter < num && (int)obj.GetComponent<BasicZombz> ().zom_colour == (int)Zom_Colour.RED) 
+				{
+					obj.GetComponent<BasicZombz> ().SetTarget (target);
+
+					temp_counter++;
+
+					Debug.Log (temp_counter);
+
+
+					obj.GetComponentInChildren<ExplodeZom> ().blow_up = true;
+
+				} 
+
+			}
+		}
+	}
+
+	public void Boom()
+	{
+		foreach (GameObject obj in the_hive) {
+			if ((int)obj.GetComponent<BasicZombz> ().zom_colour == (int)Zom_Colour.RED) {
+				obj.GetComponentInChildren<ExplodeZom> ().blow_up = true;
+			}
+		}
+	}
+
 	// adds a zomb to the hive, parents it to the correct gameobject, and tells it if the hive is currently following the player
 	public void AddZomb(GameObject zomb)
 	{
