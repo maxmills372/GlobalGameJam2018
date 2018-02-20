@@ -46,7 +46,7 @@ public class MoveTest : MonoBehaviour {
 		if(col.tag == "Finish")
 		{
 			arrived = true;
-			Debug.Log("jdsb");
+
 		}
 
 
