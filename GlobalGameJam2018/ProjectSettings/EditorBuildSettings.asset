@@ -8,3 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MainMenu.unity
     guid: 5bc26ec6d470d6540bb2d01b6233a32c
+  - enabled: 1
+    path: Assets/Art Scene/Craig/CraigScene.unity
+    guid: 3dfdae0a6f162354dba0228db8f0875a
