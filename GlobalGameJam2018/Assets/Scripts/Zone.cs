@@ -50,6 +50,8 @@ public class Zone : MonoBehaviour
 				case zone_colour.YELLOW:					
 					// Call send yellow code
 					print ("Send yellow from yellow zone");
+
+				GameObject.Find("BridgeController").GetComponent<BridgeFormation>().Form_Bridge();
 					break;
 
 				case zone_colour.BLUE:				

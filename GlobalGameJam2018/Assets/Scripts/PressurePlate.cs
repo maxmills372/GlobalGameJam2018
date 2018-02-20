@@ -12,6 +12,7 @@ public class PressurePlate : MonoBehaviour
 	public GameObject display;
 
 	public GameObject target;
+	public GameObject target2;
 
 	public bool detec_player;
 
@@ -19,12 +20,12 @@ public class PressurePlate : MonoBehaviour
 
 	// Use this for initialization
 	void Start () 
-	{
+	{/*
 		if (detec_player) {
 			max_number = 1;
 		} else {
 			max_number *= 2;
-		}
+		}*/
 	}
 
 	void OnTriggerEnter(Collider col)
@@ -36,6 +37,10 @@ public class PressurePlate : MonoBehaviour
 			{
 				display.GetComponent<Renderer> ().material.SetColor ("_EmissionColor", Color.green);
 				target.SendMessage ("Activate");
+				if(target2 != null)
+				{
+					target2.SendMessage ("Activate");
+				}
 				active = true;
 			} 
 		}
@@ -46,6 +51,10 @@ public class PressurePlate : MonoBehaviour
 			{
 				display.GetComponent<Renderer> ().material.SetColor ("_EmissionColor", Color.green);
 				target.SendMessage ("Activate");
+				if(target2 != null)
+				{
+					target2.SendMessage ("Activate");
+				}
 				active = true;
 			} 
 		}
@@ -63,6 +72,10 @@ public class PressurePlate : MonoBehaviour
 			{
 				display.GetComponent<Renderer> ().material.SetColor ("_EmissionColor", Color.red);
 				target.SendMessage ("Deactivate");
+				if(target2 != null)
+				{
+					target2.SendMessage ("Deactivate");
+				}
 				active = false;
 			}
 		}
@@ -73,6 +86,10 @@ public class PressurePlate : MonoBehaviour
 			{
 				display.GetComponent<Renderer> ().material.SetColor ("_EmissionColor", Color.red);
 				target.SendMessage ("Deactivate");
+				if(target2 != null)
+				{
+					target2.SendMessage ("Deactivate");
+				}
 				active = false;
 			}
 		}

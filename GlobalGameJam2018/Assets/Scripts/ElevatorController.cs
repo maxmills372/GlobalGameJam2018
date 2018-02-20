@@ -66,6 +66,7 @@ public class ElevatorController : MonoBehaviour
 		if (active) 
 		{
 			elevator_obj.transform.position = Vector3.Lerp (start_pos, end_pos, timer);
+
 		}
 
 	}

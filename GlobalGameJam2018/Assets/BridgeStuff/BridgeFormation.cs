@@ -75,6 +75,8 @@ public class BridgeFormation : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.B))
 		{
 			form_bridge = true;
+			bridge[bridge_amount - 1].GetComponent<MoveTest>().arrived = true;
+			bridge[bridge_amount - 2].GetComponent<MoveTest>().arrived = true;
 		}
 
         if (form_bridge)
