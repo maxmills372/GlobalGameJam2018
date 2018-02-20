@@ -61,31 +61,6 @@ public class BasicZombz : MonoBehaviour
 
 		min_distance = agent.stoppingDistance - 0.5f;
 
-		// A random number
-		int rando = Random.Range(0, 10);
-
-		// Assign random colour
-		if (rando < 7)
-		{
-			zom_colour = Zom_Colour.GREY;
-		}
-		else if (rando == 7)
-		{
-			zom_colour = Zom_Colour.RED;
-		}
-		else if (rando == 8)
-		{
-			zom_colour = Zom_Colour.BLUE;
-		}
-		else if (rando == 9)
-		{
-			zom_colour = Zom_Colour.YELLOW;
-		}
-		else
-		{
-			print("Fuck");
-		}
-
 		// Find the renderer
 		//Renderer this_renderer = gameObject.GetComponent<Renderer>();
 
